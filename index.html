@@ -17,8 +17,6 @@
         let load = async () => {
             let data = await (await fetch('/data.json')).json();
 
-            console.log(data);
-
             const ui = SwaggerUIBundle({
                 urls: data,
                 dom_id: '#swagger-ui',
