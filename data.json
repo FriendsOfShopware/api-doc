@@ -1,0 +1,22 @@
+[
+  {
+    "url": "/version/6.1.6/api.json",
+    "name": "Management API (6.1.6)"
+  },
+  {
+    "url": "/version/6.1.6/sales-channel-api.json",
+    "name": "Sales Channel API (6.1.6)"
+  },
+  {
+    "url": "/version/6.2.0/api.json",
+    "name": "Management API (6.2.0)"
+  },
+  {
+    "url": "/version/6.2.0/sales-channel-api.json",
+    "name": "Sales Channel API (6.2.0)"
+  },
+  {
+    "url": "/version/6.2.0/store-api.json",
+    "name": "Store API (6.2.0)"
+  }
+]
