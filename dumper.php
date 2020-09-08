@@ -48,6 +48,7 @@ function update(string $currentVersion)
 
     echo '=> Unzip ' . $updateInfo['version'] . PHP_EOL;
     exec('unzip -o ' . $zipName);
+    exec('rm -rf vendor/shopware/recovery/vendor/phpunit/php-code-coverage/tests/_files/Crash.php');
 
     echo '=> Updating ' . $updateInfo['version'] . PHP_EOL;
     exec('php public/recovery/update/index.php -n');
