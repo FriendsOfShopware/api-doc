@@ -6,8 +6,9 @@ jobs:
   build:
     runs-on: ubuntu-latest
 
+    steps:
     - uses: shivammathur/setup-php@v2
-      with:
+       with:
         php-version: '7.4'
 
     - name: Clone platform
@@ -17,8 +18,7 @@ jobs:
 
     - name: Start MySQL
       run: ./api-doc/.github/setup-db.sh mysql:5.7
-
-    steps:
+      
     - name: Install Shopware 6.1.0
       run: |
         mkdir shopware
