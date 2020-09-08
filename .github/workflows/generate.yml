@@ -32,3 +32,13 @@ jobs:
          php dumper.php http://localhost:8000
          ls -la ../api-doc/version/*
          cat ../api-doc/data.json
+    
+     - uses: EndBug/add-and-commit@v4 # You can change this to use a specific version
+       with:
+        add: '.'
+        author_name: Frosh Bot
+        author_email: bot@fos.gg
+        cwd: './api-doc'
+        message: 'Updated Swagger definitions'
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} # Leave this line unchanged
