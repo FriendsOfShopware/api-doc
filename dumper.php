@@ -21,6 +21,16 @@ function fetch($path) {
     }
 
     $api = json_decode($json, true);
+
+    if (isset($api['errors'])) {
+        var_dump($api);
+        return null;
+    }
+    
+    if (!isset($api['openapi'])) {
+        return null;
+    }
+
     $api['servers'] = [
         [
             'url' => 'http://localhost'
