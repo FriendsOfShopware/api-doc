@@ -40,5 +40,5 @@ jobs:
         author_email: bot@fos.gg
         cwd: './api-doc'
         message: 'Updated Swagger definitions'
-      env:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} # Leave this line unchanged
+       env:
+         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} # Leave this line unchanged
