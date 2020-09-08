@@ -1,6 +1,7 @@
 <?php
 
 $url = $_SERVER['argv'][1];
+$listing = [];
 
 function fetch($path) {
     global $url;
@@ -26,9 +27,12 @@ function fetch($path) {
 
 function update(string $currentVersion)
 {
+    global $listing;
+
     $updateInfo = json_decode(file_get_contents('https://update-api.shopware.com/v1/release/update?shopware_version=' . $currentVersion . '&channel=stable&major=6'), true);
 
     if ($updateInfo['version'] === $currentVersion) {
+        file_put_contents(dirname(__DIR__) . '/api-doc/data.json', json_encode($listing, JSON_PRETTY_PRINT));
         return;
     }
 
@@ -41,13 +45,14 @@ function update(string $currentVersion)
     exec('unzip -o ' . $zipName);
 
     echo '=> Updating ' . $updateInfo['version'] . PHP_EOL;
-    exec('public/recovery/update/index.php -n');
+    exec('php public/recovery/update/index.php -n');
     exec('rm -rf update-assets');
 
     dump($updateInfo['version']);
 }
 
 function dump(string $currentVersion) {
+    global $listing;
     $apiVersion = substr($currentVersion, 2, 1);
 
     $api = fetch('/api/v' . $apiVersion . '/_info/openapi3.json');
@@ -61,14 +66,26 @@ function dump(string $currentVersion) {
 
     if ($api) {
         file_put_contents($outputDir . '/api.json', json_encode($api));
+        $listing[] = [
+            'url' => '/version/' . $currentVersion . '/api.json',
+            'name' => 'Management API (' . $currentVersion . ')'
+        ];
     }
 
     if ($scApi) {
         file_put_contents($outputDir . '/sales-channel-api.json', json_encode($scApi));
+        $listing[] = [
+            'url' => '/version/' . $currentVersion . '/sales-channel-api.json',
+            'name' => 'Sales Channel API (' . $currentVersion . ')'
+        ];
     }
 
     if ($stApi) {
         file_put_contents($outputDir . '/store-api.json', json_encode($stApi));
+        $listing[] = [
+            'url' => '/version/' . $currentVersion . '/store-api.json',
+            'name' => 'Store API (' . $currentVersion . ')'
+        ];
     }
 
     update($currentVersion);

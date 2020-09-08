@@ -31,3 +31,4 @@ jobs:
          cp ../api-doc/dumper.php .
          php dumper.php
          ls -la ../api-doc/version/*
+         cat ../api-doc/data.json
