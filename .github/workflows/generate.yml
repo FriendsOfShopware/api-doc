@@ -7,25 +7,25 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - uses: shivammathur/setup-php@v2
+     - uses: shivammathur/setup-php@v2
        with:
         php-version: '7.4'
 
-    - name: Clone platform
-      uses: actions/checkout@v2
-      with:
-        path: api-doc
+     - name: Clone platform
+       uses: actions/checkout@v2
+       with:
+         path: api-doc
 
-    - name: Start MySQL
-      run: ./api-doc/.github/setup-db.sh mysql:5.7
+     - name: Start MySQL
+       run: ./api-doc/.github/setup-db.sh mysql:5.7
       
-    - name: Install Shopware 6.1.0
-      run: |
-        mkdir shopware
-        cd shopware
-        nohup php -S localhost:8000 -t public > phpd.log 2>&1 &
-        wget https://releases.shopware.com/sw6/install_6.1.0_1578903315.zip
-        unzip install_6.1.0_1578903315.zip
-        php public/recovery/install/index.php --shop-host localhost --db-host 127.0.0.1  --db-user root --db-password shopware --db-name shopware --shop-locale en-GB --shop-currency EUR --admin-username demo  --admin-password demo --admin-email demo@foo.com --admin-locale en-GB --admin-firstname demo --admin-lastname demo -n
-        echo 'APP_ENV=dev' >> .env
-        curl localhost:8000/api/v3/_info/openapi3.json
+     - name: Install Shopware 6.1.0
+       run: |
+         mkdir shopware
+         cd shopware
+         nohup php -S localhost:8000 -t public > phpd.log 2>&1 &
+         wget https://releases.shopware.com/sw6/install_6.1.0_1578903315.zip
+         unzip install_6.1.0_1578903315.zip
+         php public/recovery/install/index.php --shop-host localhost --db-host 127.0.0.1  --db-user root --db-password shopware --db-name shopware --shop-locale en-GB --shop-currency EUR --admin-username demo  --admin-password demo --admin-email demo@foo.com --admin-locale en-GB --admin-firstname demo --admin-lastname demo -n
+         echo 'APP_ENV=dev' >> .env
+         curl localhost:8000/api/v3/_info/openapi3.json
