@@ -11,6 +11,8 @@ function fetch($path) {
     $json = curl_exec($ch);
     curl_close($ch);
 
+    var_dump($json);
+
     if (empty($json)) {
         return null;
     }
