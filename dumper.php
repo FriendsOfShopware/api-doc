@@ -81,7 +81,7 @@ function dump(string $currentVersion) {
     }
 
     if ($api) {
-        file_put_contents($outputDir . '/api.json', json_encode($api));
+        file_put_contents($outputDir . '/api.json', json_encode($api, JSON_UNESCAPED_SLASHES));
         $listing[] = [
             'url' => '/version/' . $currentVersion . '/api.json',
             'name' => 'Management API (' . $currentVersion . ')'
@@ -89,7 +89,7 @@ function dump(string $currentVersion) {
     }
 
     if ($scApi) {
-        file_put_contents($outputDir . '/sales-channel-api.json', json_encode($scApi));
+        file_put_contents($outputDir . '/sales-channel-api.json', json_encode($scApi, JSON_UNESCAPED_SLASHES));
         $listing[] = [
             'url' => '/version/' . $currentVersion . '/sales-channel-api.json',
             'name' => 'Sales Channel API (' . $currentVersion . ')'
@@ -97,7 +97,7 @@ function dump(string $currentVersion) {
     }
 
     if ($stApi) {
-        file_put_contents($outputDir . '/store-api.json', json_encode($stApi));
+        file_put_contents($outputDir . '/store-api.json', json_encode($stApi, JSON_UNESCAPED_SLASHES));
         $listing[] = [
             'url' => '/version/' . $currentVersion . '/store-api.json',
             'name' => 'Store API (' . $currentVersion . ')'
