@@ -29,6 +29,6 @@ jobs:
          php public/recovery/install/index.php --shop-host localhost --db-host 127.0.0.1  --db-user root --db-password shopware --db-name shopware --shop-locale en-GB --shop-currency EUR --admin-username demo  --admin-password demo --admin-email demo@foo.com --admin-locale en-GB --admin-firstname demo --admin-lastname demo -n
          echo 'APP_ENV=dev' >> .env
          cp ../api-doc/dumper.php .
-         php dumper.php
+         php dumper.php http://localhost:8000
          ls -la ../api-doc/version/*
          cat ../api-doc/data.json
