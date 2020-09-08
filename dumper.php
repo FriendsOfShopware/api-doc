@@ -9,6 +9,11 @@ function fetch($path) {
     $ch = curl_init($url . $path);
     curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
     $json = curl_exec($ch);
+
+    if ($json === false) {
+        var_dump(curl_getinfo($ch));
+    }
+
     curl_close($ch);
 
     var_dump($json);
