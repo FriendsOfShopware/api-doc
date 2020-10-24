@@ -1428,18 +1428,20 @@ c38c0edf99e26080376f28c6f35a4371  vendor/shopware/administration/Resources/app/a
 8d0c1e8d0edf0f738c9a7f394d45a833  vendor/shopware/administration/Resources/app/administration/src/module/sw-import-export/component/sw-import-export-log-modal/index.js
 80b51332cbf679f03dbb26e790a67d22  vendor/shopware/administration/Resources/app/administration/src/module/sw-import-export/component/sw-import-export-log-modal/sw-import-export-log-modal.html.twig
 eb2b323400861ab0bdf72c15e606d30a  vendor/shopware/administration/Resources/app/administration/src/module/sw-import-export/component/sw-import-export-log-modal/sw-import-export-log-modal.scss
-d76d82529295c02e9576aaa6dbe8cb40  vendor/shopware/administration/Resources/app/administration/src/module/sw-import-export/component/sw-import-export-profile-csv-mapping-modal/index.js
+8072c0aadf046833bc9079a98d4f7212  vendor/shopware/administration/Resources/app/administration/src/module/sw-import-export/component/sw-import-export-profile-csv-mapping-modal/index.js
 a8a80d57aeeccf0000085c250af5008c  vendor/shopware/administration/Resources/app/administration/src/module/sw-import-export/component/sw-import-export-profile-csv-mapping-modal/sw-import-export-profile-csv-mapping-modal.html.twig
 411309aa3e7545d0e479f1feb0cdcc50  vendor/shopware/administration/Resources/app/administration/src/module/sw-import-export/component/sw-import-export-profile-csv-mapping-modal/sw-import-export-profile-csv-mapping-modal.scss
 8b14aef323ce37c94e5e6d2eb579cd8f  vendor/shopware/administration/Resources/app/administration/src/module/sw-import-export/component/sw-import-export-progress/index.js
 8dcc47d75930711d31a0d0ca50f5c963  vendor/shopware/administration/Resources/app/administration/src/module/sw-import-export/component/sw-import-export-progress/sw-import-export-progress.html.twig
 5454b15450a51b08d53d18108b30ab6e  vendor/shopware/administration/Resources/app/administration/src/module/sw-import-export/component/sw-import-export-progress/sw-import-export-progress.scss
+5636ffb005311f11ad30421ff058a927  vendor/shopware/administration/Resources/app/administration/src/module/sw-import-export/extension/sw-settings-index/index.js
+77643650a52799f8e6bade5fd91925e8  vendor/shopware/administration/Resources/app/administration/src/module/sw-import-export/extension/sw-settings-index/sw-settings-index.html.twig
 917eeb40adcce59918c373fa8a25a454  vendor/shopware/administration/Resources/app/administration/src/module/sw-import-export/index.js
 e13defbc1eb235a127a7e3907c4b5a1a  vendor/shopware/administration/Resources/app/administration/src/module/sw-import-export/page/sw-import-export-index/index.js
 12573badcbecf3c48037d774bc631444  vendor/shopware/administration/Resources/app/administration/src/module/sw-import-export/page/sw-import-export/index.js
 45fa5d257176a2b6f23b4795cc07e16a  vendor/shopware/administration/Resources/app/administration/src/module/sw-import-export/page/sw-import-export-index/sw-import-export-index.html.twig
 674137d53fa6d41057a73587505cea81  vendor/shopware/administration/Resources/app/administration/src/module/sw-import-export/page/sw-import-export-index/sw-import-export-index.scss
-943c5c797c026f3415715d3bc5877c8c  vendor/shopware/administration/Resources/app/administration/src/module/sw-import-export/page/sw-import-export-log-list/index.js
+f92b6f82b8639556fcf44d977909b5a1  vendor/shopware/administration/Resources/app/administration/src/module/sw-import-export/page/sw-import-export-log-list/index.js
 2235731201f2dc68baa32b2a23b31165  vendor/shopware/administration/Resources/app/administration/src/module/sw-import-export/page/sw-import-export-log-list/sw-import-export-log-list.html.twig
 2a764e9c700ecbff79e595e75d4560ab  vendor/shopware/administration/Resources/app/administration/src/module/sw-import-export/page/sw-import-export-log-list/sw-import-export-log-list.scss
 1f579d3aa78090a8a624db70ce631c61  vendor/shopware/administration/Resources/app/administration/src/module/sw-import-export/page/sw-import-export-profile-create/index.js
@@ -2061,6 +2063,7 @@ f912ee1ed8ccd7811f7d673655903f6a  vendor/shopware/administration/Resources/app/a
 50c372fcabecc2faf28d27dfd909e3b4  vendor/shopware/administration/Resources/app/administration/src/module/sw-settings-google-shopping/index.js
 2339baf1f5c35c6396ea0595e2e0c606  vendor/shopware/administration/Resources/app/administration/src/module/sw-settings-google-shopping/page/sw-settings-google-shopping/index.js
 31da15b6764345fa893a38b770363f5a  vendor/shopware/administration/Resources/app/administration/src/module/sw-settings-google-shopping/page/sw-settings-google-shopping/sw-settings-google-shopping.html.twig
+d41d8cd98f00b204e9800998ecf8427e  vendor/shopware/administration/Resources/app/administration/src/module/sw-settings-import-export/index.js
 66898561b3c3573a874b358e55910adb  vendor/shopware/administration/Resources/app/administration/src/module/sw-settings/index.js
 5636ffb005311f11ad30421ff058a927  vendor/shopware/administration/Resources/app/administration/src/module/sw-settings-language/extension/sw-settings-index/index.js
 44a9707d417b9b9db19fe2edf57667e7  vendor/shopware/administration/Resources/app/administration/src/module/sw-settings-language/extension/sw-settings-index/sw-settings-index.html.twig
@@ -2293,7 +2296,9 @@ eb733730369f47df62f6b7fc337e79cc  vendor/shopware/administration/Resources/app/a
 536e317153ec80e1ab4b38d5437147d4  vendor/shopware/administration/Resources/app/administration/test/component/sw-button.spec.js
 184d25e2c6187a17d7b771f3e601cffe  vendor/shopware/administration/Resources/app/administration/test/component/sw-chart.spec.js
 bf6eecc129310cb54c759f52380b944e  vendor/shopware/administration/Resources/app/administration/test/component/sw-colorpicker.spec.js
+ead37e06e2da8c7dc018a8d62afdb936  vendor/shopware/administration/Resources/app/administration/test/component/sw-multi-select.spec.js
 0b4f346743f404b00b45e7e56fdd07e0  vendor/shopware/administration/Resources/app/administration/test/component/sw-price-field.spec.js
+24b4ec233248b4ea266bfafd9935ee96  vendor/shopware/administration/Resources/app/administration/test/component/sw-single-select.spec.js
 6fe3ab0d7a9d154ecdbcf25e30fcd073  vendor/shopware/administration/Resources/app/administration/test/core/data-new/entity-collection.data.spec.js
 2f65a0484856714ad662fa99156bfe30  vendor/shopware/administration/Resources/app/administration/test/core/factory/component.factory.spec.js
 581853f12e41d42cae96ed899cab2c4e  vendor/shopware/administration/Resources/app/administration/test/core/factory/http.factory.spec.js
@@ -2421,7 +2426,7 @@ f06888baf22dce57472c5905cb173572  vendor/shopware/administration/Resources/app/a
 1289a842ca5a201751b50188e20b96f4  vendor/shopware/administration/Resources/app/administration/test/e2e/cypress/support/service/saleschannel/sales-channel-api.service.js
 19ac260b9b4fee3ef005a9dea936d524  vendor/shopware/administration/Resources/app/administration/test/e2e/.eslintrc.js
 3d9bf894d1441bf4c9d9f4de6f57681e  vendor/shopware/administration/Resources/app/administration/test/e2e/routes/cypress.js
-2e012e380a9a05421a00f2dbd83aeb0a  vendor/shopware/administration/Resources/app/administration/test/factory/component.factory.spec.js
+2f65a0484856714ad662fa99156bfe30  vendor/shopware/administration/Resources/app/administration/test/factory/component.factory.spec.js
 8abf88ca7ae450444fa2bdad1d546cf3  vendor/shopware/administration/Resources/app/administration/test/factory/module.factory.spec.js
 7b325142aa09b9d26bbfc361caab9164  vendor/shopware/administration/Resources/app/administration/test/factory/worker-notification.factory.spec.js
 d818a5329adcb49c94b46b4c41b47fb1  vendor/shopware/administration/Resources/app/administration/test/helper/flattree.helper.spec.js
@@ -2436,12 +2441,15 @@ b154104b0dc29caeb639cdd8454f882f  vendor/shopware/administration/Resources/app/a
 774941998cb6490415993774da2d9d12  vendor/shopware/administration/Resources/app/administration/test/module/sw-import-export/component/sw-import-export-activity.spec.js
 df47ebc6a154e215480325b2c94fe9f5  vendor/shopware/administration/Resources/app/administration/test/module/sw-import-export/component/sw-import-export-entity-path-select.spec.js
 ec9f15a19133ed5a8ac684b9b298aa84  vendor/shopware/administration/Resources/app/administration/test/module/sw-import-export/component/sw-import-export-progress.spec.js
+bb29cd9c14ee751d5a7f2d6274a21770  vendor/shopware/administration/Resources/app/administration/test/module/sw-import-export/import-export.service.spec.js
 50960e5ab3e2078732810bd8c452ca4a  vendor/shopware/administration/Resources/app/administration/test/module/sw-import-export/service/importExportProfileMapping.service.spec.js
 bb29cd9c14ee751d5a7f2d6274a21770  vendor/shopware/administration/Resources/app/administration/test/module/sw-import-export/service/import-export.service.spec.js
 a0eb443674f08573979587f0b6086eea  vendor/shopware/administration/Resources/app/administration/test/module/sw-import-export/service/mocks/entity-schema.mock.js
 23d81115f68ad724e20d93e11e37ebe8  vendor/shopware/administration/Resources/app/administration/test/module/sw-import-export/service/mocks/mappings.mock.js
+9f3e3c9f46aa02c1e645bb5947862ef7  vendor/shopware/administration/Resources/app/administration/test/module/sw-import-export/sw-import-export-entity-path-select.spec.js
 b6e52090ab082f024cb84417531c333e  vendor/shopware/administration/Resources/app/administration/test/module/sw-import-export/sw-import-export-exporter.spec.js
 0189d3f0953eae490cc4654407c08ce5  vendor/shopware/administration/Resources/app/administration/test/module/sw-import-export/sw-import-export-importer.spec.js
+fe13546059965a28fb97b8d764d325fd  vendor/shopware/administration/Resources/app/administration/test/module/sw-import-export/sw-import-export-progress.spec.js
 03804ebf4a9d1e94b302cc5b6f3708f8  vendor/shopware/administration/Resources/app/administration/test/module/sw-mail-template/page/sw-mail-template-detail.spec.js
 b5e6b50ad598ea945b30ff4952a4fac9  vendor/shopware/administration/Resources/app/administration/test/module/sw-media/component/sidebar/sw-media-quickinfo-usage.spec.js
 abd908ad7fc3f506d66740bc62e28c95  vendor/shopware/administration/Resources/app/administration/test/module/sw-order/component/sw-order-user-card-tracking-code-display.spec.js
@@ -2472,7 +2480,7 @@ cb442f060285a0f3db2aa356baadd4f2  vendor/shopware/administration/Resources/app/a
 eedffb72bba00d15916bfd4617012cc0  vendor/shopware/administration/Resources/app/administration/test/@tool/setup-env-for-shopware.js
 36042b34ffcf33076ecaeba81fee690f  vendor/shopware/administration/Resources/app/administration/test/@tool/setup-env-require-context.js
 3f65ad907ecb4a5091e4d1f54b4d00f2  vendor/shopware/administration/Resources/app/administration/test/@tool/transform.js
-49001b1fedea8e5a1112bb57a8db5480  vendor/shopware/administration/Resources/app/administration/test/@tool/twig-to-vue-transformer/index.js
+8db8312fce22841640aa6a61c03c4ab2  vendor/shopware/administration/Resources/app/administration/test/@tool/twig-to-vue-transformer/index.js
 46598a0cf1bbda60fc7444754be9d705  vendor/shopware/administration/Resources/app/administration/test/@tool/twig-to-vue-transformer/twig-renderer.js
 0ac41e1c1ced88d78081c5cfb46395e4  vendor/shopware/administration/Resources/app/administration/test/webpack/assets/ExamplePluginForTesting/src/Resources/administration/main.js
 c51979136010b70c64ab30347d9fcf5d  vendor/shopware/administration/Resources/app/administration/test/webpack/assets/ExamplePluginForTesting/src/Resources/administration/src/app/component/dummy-component/index.js
@@ -2485,7 +2493,10 @@ bde12b54ea72665becb458c62ef67c8c  vendor/shopware/administration/Resources/app/c
 d19ff8bd1621d5e2cd7bc2b77307675b  vendor/shopware/administration/Resources/app/common/webpack-plugin-injector/index.js
 443d6030bc8a99783db8a446b36f436d  vendor/shopware/administration/Resources/config/routes.xml
 61e6bed30b187a5192048eac9110396e  vendor/shopware/administration/Resources/public/04a704910b9a8cb8e86e.worker.js
+9e48db491834f5241790d98b3cf0e1bb  vendor/shopware/administration/Resources/public/57fc9a111f1e30ef7932.worker.js
 27012f1e531142abff0b462cad980457  vendor/shopware/administration/Resources/public/797cea7978024b27e61f.worker.js
+977ffa417cb41c5097fea13e2a544de8  vendor/shopware/administration/Resources/public/ad2f928af50ec2bc05c2.worker.js
+54c0863da9ed429f08b8b665c87e36fa  vendor/shopware/administration/Resources/public/d426fe016d96aeaea421.worker.js
 77e3cd8f981ad52a1575f23bbf065aba  vendor/shopware/administration/Resources/public/static/js/app.js
 4f283741d4e997461f1030b6198753b3  vendor/shopware/administration/Resources/public/static/js/commons.js
 1a2f188fde1975db02370d290c78dcd2  vendor/shopware/administration/Resources/public/static/js/runtime.js
@@ -3195,6 +3206,7 @@ b6e8effa0dfb5f954a6ae11f900b10d0  vendor/shopware/core/Checkout/Test/Payment/Han
 c5e931cfcf686c134411c9415f78b88d  vendor/shopware/core/Checkout/Test/Payment/Handler/SyncTestPaymentHandler.php
 6698dcd781b448e6218dd047fb226580  vendor/shopware/core/Checkout/Test/Payment/Handler/V630/AsyncTestPaymentHandler.php
 d4ff8e6e393f4fa82e86e07387380af4  vendor/shopware/core/Checkout/Test/Payment/Handler/V630/SyncTestPaymentHandler.php
+0aa4d2d859f5f7953f72f06cef86ee73  vendor/shopware/core/Checkout/Test/Payment/JWTFactoryTest.php
 f44de25d842cf5e17b00ac75a1a57f05  vendor/shopware/core/Checkout/Test/Payment/JWTFactoryV2Test.php
 609ef99a5c708348cb8d8b8edd9634c4  vendor/shopware/core/Checkout/Test/Payment/PaymentMethodRepositoryTest.php
 11d4002d9af64701bdb74c8b4638b962  vendor/shopware/core/Checkout/Test/Payment/PaymentServiceTest.php
@@ -3986,6 +3998,7 @@ f3c8a1cf696415e1c0d8ebe46b0c7ace  vendor/shopware/core/Content/Test/ImportExport
 134c41037e44fff587398fb04e5fa19b  vendor/shopware/core/Content/Test/MailTemplate/Api/MailActionControllerTest.php
 2e14630a63b91c1c6db1cd120322de05  vendor/shopware/core/Content/Test/MailTemplate/Api/MailHeaderFooterApiTest.php
 cb22cebab743eda95cd8235a92a3a152  vendor/shopware/core/Content/Test/MailTemplate/Repository/MailHeaderFooterRepositoryTest.php
+8ee1d25e8233b32e8f5fad02bb39467b  vendor/shopware/core/Content/Test/MailTemplate/Service/MailerFactoryTest.php
 eadcf40ab77294a46518b73178c0afd1  vendor/shopware/core/Content/Test/MailTemplate/Service/MailerTransportFactoryTest.php
 64b81e86eb6cf1b4b31abfc57e78130a  vendor/shopware/core/Content/Test/Media/Aggregate/MediaFolderConfigurationThumbnailSize/MediaFolderConfigurationMediaThumbnailSizeTest.php
 7d96aa72f019865abef2940bf89b200c  vendor/shopware/core/Content/Test/Media/Aggregate/MediaFolder/MediaFolderTest.php
@@ -5195,8 +5208,10 @@ c49664e8e13baaf80450f73e04575646  vendor/shopware/core/Framework/Test/MessageQue
 f0749abf48452d3a5b6650edbd1ff951  vendor/shopware/core/Framework/Test/MessageQueue/fixtures/TestMessage.php
 f61b5eeda66bfcad9ac2f02c123a70ef  vendor/shopware/core/Framework/Test/Migration/Api/MigrationControllerTest.php
 45ba20e8be9eab90192de2d264b5ddc7  vendor/shopware/core/Framework/Test/Migration/MigrationCollectionRuntimeTest.php
+8e91ade009b891b5c4bb41e8deb5088a  vendor/shopware/core/Framework/Test/Migration/MigrationCollectorTest.php
 2aeb10fdc6b6a6d20c97994f2d68447b  vendor/shopware/core/Framework/Test/Migration/MigrationCommandTest.php
 a20751f023966205d8a998758658f1d0  vendor/shopware/core/Framework/Test/Migration/MigrationLoaderTest.php
+ec1e66657fb50afe08e221197fdebc17  vendor/shopware/core/Framework/Test/Migration/MigrationRuntimeTest.php
 30c67fa7657c59e5dfb4526798f547f1  vendor/shopware/core/Framework/Test/Migration/MigrationSourceTest.php
 7a4fc0a5bac2fcea42dafb9341afda57  vendor/shopware/core/Framework/Test/Migration/MigrationStepTest.php
 4528ed70ac800cf431bf0189c01547d6  vendor/shopware/core/Framework/Test/Migration/MigrationTestBehaviour.php
@@ -5515,7 +5530,7 @@ a6a0d27199d37e454fb76bec112b4d00  vendor/shopware/core/Migration/Migration155913
 9c99666b49d5731fd1965ae279219e1d  vendor/shopware/core/Migration/Migration1562306893MakeCustomerFirstLoginDateTime.php
 87a7378ba3b51bcc600f4433227674af  vendor/shopware/core/Migration/Migration1562324772AddOrderDateToOrder.php
 0f832b6ba2d9bc67e80f4bc28b3be3ae  vendor/shopware/core/Migration/Migration1562579120ProductAvailableFields.php
-07142d580633439355fe0261b593fa30  vendor/shopware/core/Migration/Migration1562683944ImportExportProfileIdentifierFields.php
+69da6dbc46cf6fdb6e8abdc8bcc7bd08  vendor/shopware/core/Migration/Migration1562683944ImportExportProfileIdentifierFields.php
 19c2f20e6655bd94c0a73d9f3f9e5429  vendor/shopware/core/Migration/Migration1562684474AddDeliveryTime.php
 a3394da9bedff6e74ae499fee25aaba7  vendor/shopware/core/Migration/Migration1562841035AddProductChildCount.php
 2913e9032f73f46f310ce14b5cd17f73  vendor/shopware/core/Migration/Migration1562933907ContactForm.php
@@ -6064,6 +6079,7 @@ b9467ddbc787e75b3c41c3aa6b1f99a9  vendor/shopware/elasticsearch/Framework/Test/I
 7fa01ca19d07c1238ed6b8f9cde8fe4d  vendor/shopware/elasticsearch/Product/SearchKeywordReplacement.php
 3d3cc7d6c592111f1bf22f735735f2eb  vendor/shopware/elasticsearch/Resources/config/services.xml
 054ad27b21227117541a3583f1f193e6  vendor/shopware/elasticsearch/Test/ElasticsearchTestTestBehaviour.php
+dafc712c68d4cb4f047cb3fe8126db7b  vendor/shopware/elasticsearch/Test/Indexing/IndexMessageDispatcherTest.php
 0db97ef05a1767109d639ce7e5d27c52  vendor/shopware/elasticsearch/Test/Product/ElasticsearchProductDefinitionExtension.php
 e6fd0384c7e708a816aaf29dbe2070cb  vendor/shopware/elasticsearch/Test/Product/ElasticsearchProductTest.php
 95ed3a5e02e60eb8e4a5000ce8f37f2f  vendor/shopware/elasticsearch/Test/Product/ProductSearchBuilderTest.php
@@ -6080,7 +6096,7 @@ b687a00e59d0434aa10aa7d7cdade0fc  vendor/shopware/recovery/Common/src/HttpClient
 75ae321dc33158d79f02ced03f5e574a  vendor/shopware/recovery/Common/src/HttpClient/CurlClient.php
 42edb77d0821a45b9fcca17861f5ed70  vendor/shopware/recovery/Common/src/HttpClient/Response.php
 010537cbd3b55012b5a23271c80bce14  vendor/shopware/recovery/Common/src/IOHelper.php
-2b69b83e4bb2bf6f96df2a24427f1205  vendor/shopware/recovery/Common/src/MigrationRuntime.php
+e7ee58a641387e61295e5d371d30e795  vendor/shopware/recovery/Common/src/MigrationRuntime.php
 cd3ca8d177709f9d6756822f75f0de02  vendor/shopware/recovery/Common/src/Service/JwtCertificateService.php
 e44ea8b3b329a68d26c6ce6aa94bec15  vendor/shopware/recovery/Common/src/Service/Notification.php
 59953189275976c814b9cb8f0495596b  vendor/shopware/recovery/Common/src/Service/SystemConfigService.php
@@ -6918,6 +6934,7 @@ ec9ae654d21ecc9ae694f8e87cd8630b  vendor/shopware/recovery/Common/vendor/symfony
 79074c1e723b49b2d6b46e207d5ef409  vendor/shopware/recovery/Install/check.php
 bd8d6990c3e5bfbe4bba9915a034df18  vendor/shopware/recovery/Install/config/production.php
 115268f277425b4e8d58770b8d8f9aab  vendor/shopware/recovery/Install/data/lang/cs.php
+d7e176c9b36155b01e492b995786fd15  vendor/shopware/recovery/Install/data/lang/cz.php
 9391dd343c15ee9fbf0d7362859ed356  vendor/shopware/recovery/Install/data/lang/de.php
 cf6320f1c1c83d74130cf62fc78c76f5  vendor/shopware/recovery/Install/data/lang/en.php
 952fae18a1d1da9c8f9645f8db97c86d  vendor/shopware/recovery/Install/data/lang/es.php
