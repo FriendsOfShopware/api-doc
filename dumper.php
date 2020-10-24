@@ -104,7 +104,7 @@ function dump(string $currentVersion) {
         ];
     }
     
-    exec("find vendor/shopware -type f \( -iname '*.php' -o -iname '*.twig' -o -iname '*.js' -o -iname '*.scss' -o -iname '*.xml' \) -print0 | xargs -0 md5sum | sort -k 2 -d > " . $outputDir . '/Files.md5sums')
+    exec("find vendor/shopware -type f \( -iname '*.php' -o -iname '*.twig' -o -iname '*.js' -o -iname '*.scss' -o -iname '*.xml' \) -print0 | xargs -0 md5sum | sort -k 2 -d > " . $outputDir . '/Files.md5sums');
 
     update($currentVersion);
 }
