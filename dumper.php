@@ -42,10 +42,10 @@ function fetch($path) {
 
 function update($updateInfo)
 {
-    $zipName = basename($updateInfo['url']);
+    $zipName = basename($updateInfo['link']);
 
     echo '=> Downloading ' . $updateInfo['version'] . PHP_EOL;
-    exec('wget ' . $updateInfo['url']);
+    exec('wget ' . $updateInfo['link']);
 
     echo '=> Unzip ' . $updateInfo['version'] . PHP_EOL;
     exec('unzip -o ' . $zipName);
