@@ -40,15 +40,15 @@
         "name": "Store API (6.3.0.0)"
     },
     {
-        "url": "\/version\/6.3.1.1\/api.json",
-        "name": "Management API (6.3.1.1)"
+        "url": "\/version\/6.3.2.1\/api.json",
+        "name": "Management API (6.3.2.1)"
     },
     {
-        "url": "\/version\/6.3.1.1\/sales-channel-api.json",
-        "name": "Sales Channel API (6.3.1.1)"
+        "url": "\/version\/6.3.2.1\/sales-channel-api.json",
+        "name": "Sales Channel API (6.3.2.1)"
     },
     {
-        "url": "\/version\/6.3.1.1\/store-api.json",
-        "name": "Store API (6.3.1.1)"
+        "url": "\/version\/6.3.2.1\/store-api.json",
+        "name": "Store API (6.3.2.1)"
     }
 ]
