@@ -15,6 +15,7 @@ foreach ($md5Sums as $row) {
 
         // This file differs on update systems. This change is missing in update packages lol!
         // @see: https://github.com/shopware/platform/commit/957e605c96feef67a6c759f00c58e35d2d1ac84f#diff-e49288a50f0d7d8acdabb5ffef2edcd5ac4f4126f764d3153d19913ce98aba1cL10-R80
+        // @see: https://issues.shopware.com/issues/NEXT-11618
         if ($file === 'vendor/shopware/core/Checkout/Order/Aggregate/OrderAddress/OrderAddressDefinition.php' && $md5Sum === 'e3da59baff091fd044a12a61cd445385') {
             continue;
         }
