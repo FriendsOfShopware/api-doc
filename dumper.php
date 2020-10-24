@@ -40,21 +40,12 @@ function fetch($path) {
     return $api;
 }
 
-function update(string $currentVersion)
+function update($updateInfo)
 {
-    global $listing;
-
-    $updateInfo = json_decode(file_get_contents('https://update-api.shopware.com/v1/release/update?shopware_version=' . $currentVersion . '&channel=stable&major=6'), true);
-
-    if ($updateInfo['version'] === $currentVersion) {
-        file_put_contents(dirname(__DIR__) . '/api-doc/data.json', json_encode($listing, JSON_PRETTY_PRINT));
-        return;
-    }
-
-    $zipName = basename($updateInfo['uri']);
+    $zipName = basename($updateInfo['url']);
 
     echo '=> Downloading ' . $updateInfo['version'] . PHP_EOL;
-    exec('wget ' . $updateInfo['uri']);
+    exec('wget ' . $updateInfo['url']);
 
     echo '=> Unzip ' . $updateInfo['version'] . PHP_EOL;
     exec('unzip -o ' . $zipName);
@@ -105,8 +96,15 @@ function dump(string $currentVersion) {
     }
     
     exec("find vendor/shopware -type f \( -iname '*.php' -o -iname '*.twig' -o -iname '*.js' -o -iname '*.scss' -o -iname '*.xml' \) -print0 | xargs -0 md5sum | sort -k 2 -d > " . $outputDir . '/Files.md5sums');
-
-    update($currentVersion);
 }
 
 dump('6.1.0');
+
+$updates = json_decode(file_get_contents('https://n0g72msg55.execute-api.eu-central-1.amazonaws.com/'), true);
+
+foreach ($updates as $update) {
+    update($update);
+    dump($update['version']);
+}
+
+file_put_contents(dirname(__DIR__) . '/api-doc/data.json', json_encode($listing, JSON_PRETTY_PRINT));
