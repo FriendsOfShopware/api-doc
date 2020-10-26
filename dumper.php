@@ -45,10 +45,10 @@ function update($updateInfo)
     $zipName = basename($updateInfo['link']);
 
     echo '=> Downloading ' . $updateInfo['version'] . PHP_EOL;
-    exec('wget ' . $updateInfo['link']);
+    exec('wget -qq ' . $updateInfo['link']);
 
     echo '=> Unzip ' . $updateInfo['version'] . PHP_EOL;
-    exec('unzip -o ' . $zipName);
+    exec('unzip -qq -o ' . $zipName);
     exec('rm -rf vendor/shopware/recovery/vendor/phpunit/php-code-coverage/tests/_files/Crash.php');
 
     echo '=> Updating ' . $updateInfo['version'] . PHP_EOL;
