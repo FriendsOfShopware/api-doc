@@ -28,7 +28,7 @@ foreach ($md5Sums as $row) {
 }
 
 if (!$foundSomething) {
-    echo 'Anything is okay!' . PHP_EOL;
+    echo 'Everything is okay!' . PHP_EOL;
 }
 
 function getUsedShopwareVersion(): string
