@@ -20,6 +20,13 @@ foreach ($md5Sums as $row) {
             continue;
         }
 
+        // This file differs on update systems. This change is missing in update packages lol!
+        // @see: https://github.com/shopware/platform/commit/bbdcbe254e3239e92eb1f71a7afedfb94b7fb150
+        // @see: https://issues.shopware.com/issues/NEXT-11775
+        if ($file === 'vendor/shopware/administration/Resources/app/administration/src/app/component/media/sw-media-compact-upload-v2/index.js' && $md5Sum === '74d18e580ffe87559e6501627090efb3') {
+            continue;
+        }
+
         if ($md5Sum !== $expectedMd5Sum) {
             echo(sprintf('File "%s" has been modified. Please revert it back to default!' . PHP_EOL, $file));
             $foundSomething = true;
