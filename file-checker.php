@@ -53,7 +53,7 @@ function getUsedShopwareVersion(): string
 
 function getMd5SumsForVersion(string $version): array
 {
-    $url = sprintf('https://api-doc.friendsofshopware.com/version/%s/Files.md5sums', $version);
+    $url = sprintf('https://swagger.docs.fos.gg/version/%s/Files.md5sums', $version);
     echo '=> Downloading meta information from ' . $url . PHP_EOL;
 
     $data = trim(@file_get_contents($url));
