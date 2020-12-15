@@ -378,7 +378,7 @@ e6b1daa4d735a0c286b38aa1fcdb4a46  vendor/shopware/administration/Resources/app/a
 853c0da2d8f2382759728ef759a00a95  vendor/shopware/administration/Resources/app/administration/src/app/component/media/sw-media-compact-upload/index.js
 eecf5b3553ab5dc7fe7ab54f0f79f560  vendor/shopware/administration/Resources/app/administration/src/app/component/media/sw-media-compact-upload/sw-media-compact-upload.html.twig
 6a02314abe7962fc1d82a6042f0479d9  vendor/shopware/administration/Resources/app/administration/src/app/component/media/sw-media-compact-upload/sw-media-compact-upload.scss
-74d18e580ffe87559e6501627090efb3  vendor/shopware/administration/Resources/app/administration/src/app/component/media/sw-media-compact-upload-v2/index.js
+948b5ffcd5d1e4145d847cf1d08687c4  vendor/shopware/administration/Resources/app/administration/src/app/component/media/sw-media-compact-upload-v2/index.js
 3fde58e2f0b263474e77bc2a4e95460d  vendor/shopware/administration/Resources/app/administration/src/app/component/media/sw-media-compact-upload-v2/sw-media-compact-upload-v2.html.twig
 a1c1550bd7de8400e8dd2b8edc566b0e  vendor/shopware/administration/Resources/app/administration/src/app/component/media/sw-media-compact-upload-v2/sw-media-compact-upload-v2.scss
 ac7ed4831c6431e801776c18076f2438  vendor/shopware/administration/Resources/app/administration/src/app/component/media/sw-media-entity-mapper/index.js
@@ -2162,7 +2162,6 @@ a07500ca1e3b596ac8b547ffdea65fb4  vendor/shopware/administration/Resources/app/a
 77e087e820ddd1033285e8b15ef73a79  vendor/shopware/administration/Resources/app/administration/src/module/sw-settings-currency/page/sw-settings-currency-list/index.js
 3f7d61c2898e66239258ad6125f4a333  vendor/shopware/administration/Resources/app/administration/src/module/sw-settings-currency/page/sw-settings-currency-list/sw-settings-currency-list.html.twig
 dc0634077981b581c58656b7b3292e7b  vendor/shopware/administration/Resources/app/administration/src/module/sw-settings-customer-group/acl/index.js
-d41d8cd98f00b204e9800998ecf8427e  vendor/shopware/administration/Resources/app/administration/src/module/sw-settings-customer-group/component/sw-customer-group-registration-seo-modal/index.js
 5636ffb005311f11ad30421ff058a927  vendor/shopware/administration/Resources/app/administration/src/module/sw-settings-customer-group/extension/sw-settings-index/index.js
 512b20c68b117492f2834389c0288645  vendor/shopware/administration/Resources/app/administration/src/module/sw-settings-customer-group/extension/sw-settings-index/sw-settings-index.html.twig
 3901e544503c53d737eeeef1750b8641  vendor/shopware/administration/Resources/app/administration/src/module/sw-settings-customer-group/index.js
@@ -7422,7 +7421,7 @@ bca58d2b61f4e7f11448f1c5460eeae8  vendor/shopware/recovery/Common/src/Steps/Vali
 31ef6d9dd57dec641a48d1829edffbf2  vendor/shopware/recovery/Common/vendor/composer/autoload_files.php
 8f5440bca5e6b6032f149c129c8fa462  vendor/shopware/recovery/Common/vendor/composer/autoload_namespaces.php
 3561bf47a37a59eb6ab582ccc605d22f  vendor/shopware/recovery/Common/vendor/composer/autoload_psr4.php
-012c3fad5976e620de5981e5c80d8d3b  vendor/shopware/recovery/Common/vendor/composer/autoload_real.php
+4c77d2e54376ccd0206e8b0f8335f575  vendor/shopware/recovery/Common/vendor/composer/autoload_real.php
 2046ce954047b14a01d1e8f6f05630f8  vendor/shopware/recovery/Common/vendor/composer/autoload_static.php
 4f79e07574d3dac64bdb533ab5d042d7  vendor/shopware/recovery/Common/vendor/container-interop/container-interop/src/Interop/Container/ContainerInterface.php
 ffcdc43f36fc0e4059e38a74556360c5  vendor/shopware/recovery/Common/vendor/container-interop/container-interop/src/Interop/Container/Exception/ContainerException.php
@@ -8393,7 +8392,7 @@ d405618107043888da10c8242d9ebd9b  vendor/shopware/recovery/vendor/composer/autol
 cc568c7ca823a21261a0e7d87ded9998  vendor/shopware/recovery/vendor/composer/autoload_files.php
 35e12c7d76c4a81633bcf547c0e229a9  vendor/shopware/recovery/vendor/composer/autoload_namespaces.php
 b21acfb31cfa9933f44ac1401191360f  vendor/shopware/recovery/vendor/composer/autoload_psr4.php
-2c3f5b3ea1391a6bbdcc9586dee3ef06  vendor/shopware/recovery/vendor/composer/autoload_real.php
+4417bf9e9019b6fba8fbefbd791cbf9c  vendor/shopware/recovery/vendor/composer/autoload_real.php
 2cbcd5071c0eb26377a9721e8f53f9e1  vendor/shopware/recovery/vendor/composer/autoload_static.php
 2981a22bb9eae534f81619ee6bf26626  vendor/shopware/recovery/vendor/doctrine/instantiator/src/Doctrine/Instantiator/Exception/ExceptionInterface.php
 9376de8da94cfb845a26e4fc949d82d9  vendor/shopware/recovery/vendor/doctrine/instantiator/src/Doctrine/Instantiator/Exception/InvalidArgumentException.php
