@@ -1,6 +1,6 @@
 This repository contains some Tooling to dump static informations about Shopware versions like:
 
-* API Documentation: https://api-doc.friendsofshopware.com/
+* API Documentation: https://swagger.docs.fos.gg/
 * MD5 of all Shopware files
 
 
