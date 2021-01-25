@@ -107,4 +107,9 @@ foreach ($updates as $update) {
     dump($update['version']);
 }
 
+$src = dirname(__DIR__) . '/api-doc/version/' . $update['version'] . '/';
+$dist = dirname(__DIR__) . '/api-doc/version/latest/';
+
+exec('cp -R ' . $src . ' ' . $dist);
+
 file_put_contents(dirname(__DIR__) . '/api-doc/data.json', json_encode($listing, JSON_PRETTY_PRINT));
