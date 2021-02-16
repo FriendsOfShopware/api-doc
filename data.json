@@ -434,5 +434,29 @@
     {
         "url": "\/version\/6.3.5.1\/store-api.json",
         "name": "Store API (6.3.5.1)"
+    },
+    {
+        "url": "\/version\/6.3.5.2\/api.json",
+        "name": "Management API (6.3.5.2)"
+    },
+    {
+        "url": "\/version\/6.3.5.2\/sales-channel-api.json",
+        "name": "Sales Channel API (6.3.5.2)"
+    },
+    {
+        "url": "\/version\/6.3.5.2\/store-api.json",
+        "name": "Store API (6.3.5.2)"
+    },
+    {
+        "url": "\/version\/6.3.5.2\/api.json",
+        "name": "Management API (6.3.5.2)"
+    },
+    {
+        "url": "\/version\/6.3.5.2\/sales-channel-api.json",
+        "name": "Sales Channel API (6.3.5.2)"
+    },
+    {
+        "url": "\/version\/6.3.5.2\/store-api.json",
+        "name": "Store API (6.3.5.2)"
     }
 ]
