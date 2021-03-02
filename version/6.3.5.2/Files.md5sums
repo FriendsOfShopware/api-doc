@@ -4829,7 +4829,7 @@ e64c7676ed3a494472b7f50b847a975b  vendor/shopware/core/Content/ProductExport/Str
 f38d87249aed26bb6f7745e694a3d0be  vendor/shopware/core/Content/ProductExport/Validator/ValidatorInterface.php
 8cc30e61002b6d7162ca728e5b696476  vendor/shopware/core/Content/ProductExport/Validator/XmlValidator.php
 615c18266ba6857f5677baab311098c5  vendor/shopware/core/Content/Product/ProductCollection.php
-d43ad7d74c5ab3e09a10828bfc87e43b  vendor/shopware/core/Content/Product/ProductDefinition.php
+3dbf81f824aad6937010e9aa53c915dd  vendor/shopware/core/Content/Product/ProductDefinition.php
 c25c14049ec9f5d8d4eb5d09c6cf99e5  vendor/shopware/core/Content/Product/ProductEntity.php
 dd76c782f2c6a40c15451e6850ab7bd9  vendor/shopware/core/Content/Product/ProductEvents.php
 4182b9829ac9144fa1e0f40a4847bb24  vendor/shopware/core/Content/Product/SalesChannel/AbstractProductListRoute.php
@@ -4891,11 +4891,11 @@ b65cee1202a70fdf14d0b144625347b0  vendor/shopware/core/Content/Product/SalesChan
 0bec49aa9332289bd45051172bc81af6  vendor/shopware/core/Content/Product/SearchKeyword/AnalyzedKeywordCollection.php
 1f737db3a35296bd551b582dd5460aff  vendor/shopware/core/Content/Product/SearchKeyword/AnalyzedKeyword.php
 504f847dc4465f91b07c776fdb7bd6bb  vendor/shopware/core/Content/Product/SearchKeyword/ProductSearchBuilderInterface.php
-b82a20db80ee4c53fb5aec15719100d7  vendor/shopware/core/Content/Product/SearchKeyword/ProductSearchBuilder.php
+8e5e2cb552a4174ee492c3c8de995096  vendor/shopware/core/Content/Product/SearchKeyword/ProductSearchBuilder.php
 7d268dd78af317da89a3944180546e8c  vendor/shopware/core/Content/Product/SearchKeyword/ProductSearchKeywordAnalyzerInterface.php
 3da0b5b950f0a56bc5b4b1381e6e2d08  vendor/shopware/core/Content/Product/SearchKeyword/ProductSearchKeywordAnalyzer.php
 315212413ff4613fe4cdd51c4ebc752d  vendor/shopware/core/Content/Product/SearchKeyword/ProductSearchTermInterpreterInterface.php
-d17b1c3c26b3a025d0bbc447e0b25024  vendor/shopware/core/Content/Product/SearchKeyword/ProductSearchTermInterpreter.php
+30acbfc6c8aaa1e46610c45a5eb7d359  vendor/shopware/core/Content/Product/SearchKeyword/ProductSearchTermInterpreter.php
 df2c2579b059e384c9532ad415f841a4  vendor/shopware/core/Content/ProductStream/Aggregate/ProductStreamFilter/ProductStreamFilterCollection.php
 4f26a3d1e0bb18dc4b9702245bde2aa9  vendor/shopware/core/Content/ProductStream/Aggregate/ProductStreamFilter/ProductStreamFilterDefinition.php
 b3de128e7df6cd784b9e78be56d3a1ae  vendor/shopware/core/Content/ProductStream/Aggregate/ProductStreamFilter/ProductStreamFilterEntity.php
@@ -5131,8 +5131,8 @@ ab41c83dbe71d1a8a7a9f8cfe1f1741f  vendor/shopware/core/Content/Test/Media/TypeDe
 92678a336eabdd8e074599dd749322a9  vendor/shopware/core/Content/Test/Newsletter/SalesChannelNewsletterControllerTest.php
 f808065ec04c554a44d4a4fd29bd634b  vendor/shopware/core/Content/Test/Newsletter/SalesChannel/NewsletterSubscribeRouteTest.php
 484123943ce18ceb28b92d8c1c9da3cb  vendor/shopware/core/Content/Test/Newsletter/SalesChannel/NewsletterUnsubscribeRouteTest.php
-ac851ab6351cbfe7ebe889dc9e7834d5  vendor/shopware/core/Content/Test/Newsletter/ScheduledTask/NewsletterRecipientTaskHandlerTest.php
-8b5006e6ae3f0ae5b34692978321ad09  vendor/shopware/core/Content/Test/Newsletter/Service/NewsletterRecipientServiceTest.php
+0b4e1b3ee21de5a7156921de32e159ec  vendor/shopware/core/Content/Test/Newsletter/ScheduledTask/NewsletterRecipientTaskHandlerTest.php
+3033ea3a565d93ac9c87a4b05d17efb1  vendor/shopware/core/Content/Test/Newsletter/Service/NewsletterRecipientServiceTest.php
 b4f733d9d6f47ae8a9186a93e01e9675  vendor/shopware/core/Content/Test/Product/Api/ProductApiConverterTest.php
 c2d931d4ea4e6427b992efabdab032f4  vendor/shopware/core/Content/Test/Product/Api/ProductApiTest.php
 5d6b8c5324cc8c10e4d1eb19df2d7ed4  vendor/shopware/core/Content/Test/Product/Cart/ProductCartProcessorTest.php
@@ -6062,7 +6062,7 @@ f83fa77272382b9c5d29009dd3f203d8  vendor/shopware/core/Framework/Parameter/Addit
 19b1fb85fd56de8cab08f2ce95a30028  vendor/shopware/core/Framework/Plugin/Aggregate/PluginTranslation/PluginTranslationCollection.php
 7f1d86859b6087cd81d4cff7a5fda85a  vendor/shopware/core/Framework/Plugin/Aggregate/PluginTranslation/PluginTranslationDefinition.php
 394e682e89d99682c312af3af20f882d  vendor/shopware/core/Framework/Plugin/Aggregate/PluginTranslation/PluginTranslationEntity.php
-1a3a0aef8fb0b896e2a03bec1b698560  vendor/shopware/core/Framework/Plugin/Api/PluginController.php
+b06802720006a73d51c3cfd51596e270  vendor/shopware/core/Framework/Plugin/Api/PluginController.php
 f22660cf2bc543c8ef794d21e480e01b  vendor/shopware/core/Framework/Plugin/BundleConfigDumper.php
 c76688c3a20070768654f3fdb719698d  vendor/shopware/core/Framework/Plugin/BundleConfigGeneratorInterface.php
 3bbd430366c4311039a04fc2286b71a1  vendor/shopware/core/Framework/Plugin/BundleConfigGenerator.php
@@ -6134,7 +6134,7 @@ a22c361646d6560050fa9003592c1c35  vendor/shopware/core/Framework/Plugin/Requirem
 067b6ad0efb03ab94e3534e8bbecce6a  vendor/shopware/core/Framework/Plugin/Requirement/Exception/RequirementStackException.php
 c164794808b934587c243d19b8d42289  vendor/shopware/core/Framework/Plugin/Requirement/Exception/VersionMismatchException.php
 c3b426a9f431a12a505307dd1a937428  vendor/shopware/core/Framework/Plugin/Requirement/RequirementExceptionStack.php
-d02162a4509fed5e47e1b55c0ab9bc87  vendor/shopware/core/Framework/Plugin/Requirement/RequirementsValidator.php
+84f749bc4b49ba3af05d8dd077e0b6d4  vendor/shopware/core/Framework/Plugin/Requirement/RequirementsValidator.php
 83fd19d0fc4f1c8ab5ae15bd827e045f  vendor/shopware/core/Framework/Plugin/Struct/PluginFromFileSystemStruct.php
 dfb9a7e48586438897c46322e128f990  vendor/shopware/core/Framework/Plugin/Subscriber/PluginAclPrivilegesSubscriber.php
 b16cae515f634de68a4e370d47bb0714  vendor/shopware/core/Framework/Plugin/Subscriber/PluginLoadedSubscriber.php
@@ -7618,7 +7618,7 @@ c3ed32f414b166f845676bf6d1c81066  vendor/shopware/core/System/NumberRange/ValueG
 2681e05dfd74894cd141ec7c28a25aa7  vendor/shopware/core/System/Resources/config/basicInformation.xml
 890c6bc07ae69665856a3b80e7976f85  vendor/shopware/core/System/Resources/config/cart.xml
 d1f3bec1207b26fd6c1c038501accc50  vendor/shopware/core/System/Resources/config/listing.xml
-5b2e5f2f5a387518dce64bd54e34d6a9  vendor/shopware/core/System/Resources/config/loginRegistration.xml
+1f06d2205b4196e0f9fc204a14339269  vendor/shopware/core/System/Resources/config/loginRegistration.xml
 ef99c2656fea343b041f09b5de02491f  vendor/shopware/core/System/Resources/config/mailerSettings.xml
 42ae9afdee49db0bc6bed70b93bed459  vendor/shopware/core/System/Resources/config/newsletter.xml
 80067419fb507296f1407df6574433ee  vendor/shopware/core/System/Resources/config/privacy.xml
@@ -10340,7 +10340,7 @@ e4367f2c08ed0713a10df6ec83c7f027  vendor/shopware/recovery/vendor/webmozart/asse
 aa8dc3f756b89e0632e7852559c186f2  vendor/shopware/storefront/Controller/AccountPaymentController.php
 3e8ac856ed10565a76e6fe6714d37be1  vendor/shopware/storefront/Controller/AccountProfileController.php
 0215f2b9709c0caa0886677d749c9c98  vendor/shopware/storefront/Controller/AddressController.php
-4c5386506325ee32395ec03567c6660e  vendor/shopware/storefront/Controller/AuthController.php
+8c236270202cbcb067136c77361aa06f  vendor/shopware/storefront/Controller/AuthController.php
 c1a9e42f212fe5ca4f1f8cfec5b92ef8  vendor/shopware/storefront/Controller/CartLineItemController.php
 9d36f16b62f0b1d5cf7c199ed400740a  vendor/shopware/storefront/Controller/CheckoutController.php
 f38ee0aa940ecb7cc85166b5ef520406  vendor/shopware/storefront/Controller/CmsController.php
@@ -10366,7 +10366,7 @@ de7971021df69b4ec80ed9a13165dff9  vendor/shopware/storefront/Controller/Verifica
 2c15fbdd36013e00398219a9f1e36dee  vendor/shopware/storefront/DependencyInjection/Configuration.php
 3969c6211e47165bd855afd072837a70  vendor/shopware/storefront/DependencyInjection/DisableTemplateCachePass.php
 b032583b4020d89c5ce253a4f725c23a  vendor/shopware/storefront/DependencyInjection/StorefrontExtension.php
-d3d64f1819c344df203981590bc33b91  vendor/shopware/storefront/DependencyInjection/controller.xml
+11d00bb6fb1d34a2ff8f3e8d09321768  vendor/shopware/storefront/DependencyInjection/controller.xml
 56ca79f9bb97756394e3428078753ea0  vendor/shopware/storefront/DependencyInjection/seo.xml
 2577a3f3418881c102abc693ff24d8a9  vendor/shopware/storefront/DependencyInjection/services.xml
 317f9c5ae8e24e3e183db659e552878e  vendor/shopware/storefront/DependencyInjection/theme.xml
@@ -10436,7 +10436,7 @@ c406c56ff331c7827e9b1419a42b036e  vendor/shopware/storefront/Framework/Routing/R
 f8e448c46194568f4320eefaafc71080  vendor/shopware/storefront/Framework/Routing/Router.php
 8e2573822b72688e24ca46550329f7c7  vendor/shopware/storefront/Framework/Routing/StorefrontResponse.php
 83888bb70f6a562b7e8ab5aa54b1b2dc  vendor/shopware/storefront/Framework/Routing/StorefrontRouteScope.php
-bedb64ade4e52e43c26c88cc2db48e85  vendor/shopware/storefront/Framework/Routing/StorefrontSubscriber.php
+560c9d750180f33492a1dbf996e602f7  vendor/shopware/storefront/Framework/Routing/StorefrontSubscriber.php
 167acb7fc48395d696057b04fc94ba14  vendor/shopware/storefront/Framework/Seo/SeoUrlRoute/NavigationPageSeoUrlRoute.php
 db4cf2290f3e5713a7a9299da8f09ab9  vendor/shopware/storefront/Framework/Seo/SeoUrlRoute/ProductPageSeoUrlRoute.php
 e462369fcd4f9c898c5accfa3d2d61fe  vendor/shopware/storefront/Framework/Seo/SeoUrlRoute/SeoUrlUpdateListener.php
@@ -11630,7 +11630,7 @@ ac1898ed77ff3a8a70ba958500361a22  vendor/shopware/storefront/Test/AccountRegistr
 99bf419e3d1d113832e91acedc64a1f5  vendor/shopware/storefront/Test/Controller/AccountOrderControllerTest.php
 0f10e32d8fde00c31d5b20eb27d52aa0  vendor/shopware/storefront/Test/Controller/AccountProfileControllerTest.php
 b47b568d81856f3fbe4a4c05df58e6de  vendor/shopware/storefront/Test/Controller/AddressControllerTest.php
-c627d1b92e0a14a3b921f92e4917d130  vendor/shopware/storefront/Test/Controller/AuthControllerTest.php
+7bcf84d4ce5d0047a72df500e79ed9da  vendor/shopware/storefront/Test/Controller/AuthControllerTest.php
 aa88fe6039149fe36a69ea44ceabcfce  vendor/shopware/storefront/Test/Controller/CartLineItemControllerTest.php
 dc3db2216c53caad67a199a2550c9e45  vendor/shopware/storefront/Test/Controller/CheckoutControllerTest.php
 fe95114e529b78373ddcc18bf26f9bbb  vendor/shopware/storefront/Test/Controller/ContextControllerTest.php
