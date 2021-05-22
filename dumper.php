@@ -61,10 +61,15 @@ function update($updateInfo)
 function dump(string $currentVersion) {
     global $listing;
     $apiVersion = substr($currentVersion, 2, 1);
+    $apiPath = '/v' . $apiVersion;
+    
+    if ($apiVersion > 4) {
+        $apiPath = '';
+    }
 
-    $api = fetch('/api/v' . $apiVersion . '/_info/openapi3.json');
-    $scApi = fetch('/sales-channel-api/v' . $apiVersion . '/_info/openapi3.json');
-    $stApi = fetch('/store-api/v' . $apiVersion . '/_info/openapi3.json');
+    $api = fetch('/api' . $apiPath . '/_info/openapi3.json');
+    $scApi = fetch('/sales-channel-api' . $apiPath . '/_info/openapi3.json');
+    $stApi = fetch('/store-api' . $apiPath . '/_info/openapi3.json');
 
     $outputDir = dirname(__DIR__) . '/api-doc/version/' . $currentVersion . '/';
     if (!file_exists($outputDir)) {
