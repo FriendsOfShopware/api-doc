@@ -63,7 +63,7 @@ function dump(string $currentVersion) {
     $apiVersion = substr($currentVersion, 2, 1);
     $apiPath = '/v' . $apiVersion;
     
-    if ($apiVersion > 4) {
+    if ($apiVersion >= 4) {
         $apiPath = '';
     }
 
