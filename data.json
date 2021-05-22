@@ -506,5 +506,37 @@
     {
         "url": "\/version\/6.3.5.4\/store-api.json",
         "name": "Store API (6.3.5.4)"
+    },
+    {
+        "url": "\/version\/6.4.0.0\/api.json",
+        "name": "Management API (6.4.0.0)"
+    },
+    {
+        "url": "\/version\/6.4.0.0\/store-api.json",
+        "name": "Store API (6.4.0.0)"
+    },
+    {
+        "url": "\/version\/6.4.0.0\/api.json",
+        "name": "Management API (6.4.0.0)"
+    },
+    {
+        "url": "\/version\/6.4.0.0\/store-api.json",
+        "name": "Store API (6.4.0.0)"
+    },
+    {
+        "url": "\/version\/6.4.1.0\/api.json",
+        "name": "Management API (6.4.1.0)"
+    },
+    {
+        "url": "\/version\/6.4.1.0\/store-api.json",
+        "name": "Store API (6.4.1.0)"
+    },
+    {
+        "url": "\/version\/6.4.1.0\/api.json",
+        "name": "Management API (6.4.1.0)"
+    },
+    {
+        "url": "\/version\/6.4.1.0\/store-api.json",
+        "name": "Store API (6.4.1.0)"
     }
 ]
