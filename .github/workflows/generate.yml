@@ -3,6 +3,8 @@ name: Generate
 on:
     workflow_dispatch:
     push:
+        branches:
+          - master
     schedule:
         - cron: "0 15 * * 2"
 jobs:
