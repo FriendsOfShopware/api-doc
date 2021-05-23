@@ -18,12 +18,20 @@ if (!file_exists($composerFolder)) {
     mkdir($composerFolder);
 }
 
+$availableVersions = [];
+
 foreach ($tags as $tag) {
+    $versionRaw = trim(ltrim($tag['name'], 'v'));
+    $folderPath = __DIR__ . '/composer/' . $versionRaw . '/';
+    $availableVersions[] = $versionRaw;
+
+    if (file_exists($folderPath)) {
+        continue;
+    }
+
     foreach ($components as $component) {
         exec('rm -rf ' . escapeshellarg($workDir));
         mkdir($workDir);
-
-        $versionRaw = trim(ltrim($tag['name'], 'v'));
 
         $composerJson = [
             'require' => [
@@ -47,7 +55,6 @@ foreach ($tags as $tag) {
             $locks[$package['name']] = $package['version'];
         }
 
-        $folderPath = __DIR__ . '/composer/' . $versionRaw . '/';
 
         if (!file_exists($folderPath)) {
             mkdir($folderPath);
@@ -56,3 +63,5 @@ foreach ($tags as $tag) {
         file_put_contents($folderPath . str_replace('shopware/', '', $component) . '.json', json_encode($locks, JSON_PRETTY_PRINT));
     }
 }
+
+file_put_contents($composerFolder . '/versions.json', json_encode($availableVersions, JSON_PRETTY_PRINT));

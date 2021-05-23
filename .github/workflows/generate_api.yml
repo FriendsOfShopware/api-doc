@@ -21,6 +21,9 @@ jobs:
        with:
          path: api-doc
 
+     - name: Start MySQL
+       run: ./api-doc/.github/setup-db.sh mysql:5.7
+
      - name: Install Shopware 6.1.0
        run: |
          mkdir shopware
