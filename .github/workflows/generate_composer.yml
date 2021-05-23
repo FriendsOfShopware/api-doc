@@ -1,0 +1,37 @@
+name: Generate API
+
+on:
+    workflow_dispatch:
+    push:
+        branches:
+          - master
+    schedule:
+        - cron: "0 15 * * 2"
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+     - uses: shivammathur/setup-php@v2
+       with:
+        php-version: '7.4'
+
+     - name: Clone api-doc
+       uses: actions/checkout@v2
+       with:
+         path: api-doc
+
+     - name: Generate Composer Info
+       run: |
+         cd api-doc
+         php composer-dumper.php
+    
+     - uses: EndBug/add-and-commit@v4
+       with:
+        add: '.'
+        author_name: Frosh Bot
+        author_email: bot@fos.gg
+        cwd: './api-doc'
+        message: 'Updated Composer information'
+       env:
+         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} # Leave this line unchanged

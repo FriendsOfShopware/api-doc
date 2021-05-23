@@ -1,4 +1,4 @@
-name: Generate
+name: Generate API
 
 on:
     workflow_dispatch:
@@ -16,14 +16,11 @@ jobs:
        with:
         php-version: '7.4'
 
-     - name: Clone platform
+     - name: Clone api-doc
        uses: actions/checkout@v2
        with:
          path: api-doc
 
-     - name: Start MySQL
-       run: ./api-doc/.github/setup-db.sh mysql:5.7
-      
      - name: Install Shopware 6.1.0
        run: |
          mkdir shopware
