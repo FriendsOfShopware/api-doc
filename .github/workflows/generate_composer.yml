@@ -1,4 +1,4 @@
-name: Generate API
+name: Generate Composer
 
 on:
     workflow_dispatch:
