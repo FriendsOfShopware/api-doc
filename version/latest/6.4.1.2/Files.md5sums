@@ -808,7 +808,7 @@ a8b7924bc73367e1d550d92909497b68  vendor/shopware/administration/Resources/app/a
 127b0a2b48e080b21d606279fbae345d  vendor/shopware/administration/Resources/app/administration/src/app/plugin/shortcut.plugin.js
 07ffad9d13804842b746d3aa3b0fdabd  vendor/shopware/administration/Resources/app/administration/src/app/route/index.js
 b9deff80df83e49d1552b01bced44b3e  vendor/shopware/administration/Resources/app/administration/src/app/service/acl.service.js
-4073af5bf58782d1fc248b0aa5f5d728  vendor/shopware/administration/Resources/app/administration/src/app/service/app-cms.service.js
+e9184d6221829e45400460efcb4ecb96  vendor/shopware/administration/Resources/app/administration/src/app/service/app-cms.service.js
 af0dec438510e96929f99ad7507ea3a4  vendor/shopware/administration/Resources/app/administration/src/app/service/custom-field.service.js
 0d2d6c274dfbb2b9fd7285ff0ace27ba  vendor/shopware/administration/Resources/app/administration/src/app/service/extension-helper.service.js
 5a8c32ca5294f9ceb48573aaee8079b8  vendor/shopware/administration/Resources/app/administration/src/app/service/feature.service.js

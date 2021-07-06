@@ -194,7 +194,7 @@ fab2222d64d4dc761ccc82d7c38aac93  vendor/shopware/administration/Resources/app/a
 c9c81287b556ea0bb30a14d0e0d192c3  vendor/shopware/administration/Resources/app/administration/src/app/component/entity/sw-bulk-edit-modal/index.js
 6b886407434e322c49f9c8cc06d2a1b9  vendor/shopware/administration/Resources/app/administration/src/app/component/entity/sw-bulk-edit-modal/sw-bulk-edit-modal.html.twig
 ef583bfdd5e02761a0c037c29774d6f6  vendor/shopware/administration/Resources/app/administration/src/app/component/entity/sw-bulk-edit-modal/sw-bulk-edit-modal.scss
-ce7749b1e49686831279b33ca8bf2cb2  vendor/shopware/administration/Resources/app/administration/src/app/component/entity/sw-category-tree-field/index.js
+3e5edffd9bc99161645c550484858ec0  vendor/shopware/administration/Resources/app/administration/src/app/component/entity/sw-category-tree-field/index.js
 6acff325dc51e7dd288cbc7f9f750efc  vendor/shopware/administration/Resources/app/administration/src/app/component/entity/sw-category-tree-field/sw-category-tree-field.html.twig
 251fc6588c3bf59061791eeee8332f3d  vendor/shopware/administration/Resources/app/administration/src/app/component/entity/sw-category-tree-field/sw-category-tree-field.scss
 25655521aad83685918d6f7899ebca8c  vendor/shopware/administration/Resources/app/administration/src/app/component/entity/sw-entity-listing/index.js
@@ -808,7 +808,7 @@ a8b7924bc73367e1d550d92909497b68  vendor/shopware/administration/Resources/app/a
 127b0a2b48e080b21d606279fbae345d  vendor/shopware/administration/Resources/app/administration/src/app/plugin/shortcut.plugin.js
 695356c20d0215dae87dfff20e4d7e7e  vendor/shopware/administration/Resources/app/administration/src/app/route/index.js
 b9deff80df83e49d1552b01bced44b3e  vendor/shopware/administration/Resources/app/administration/src/app/service/acl.service.js
-4073af5bf58782d1fc248b0aa5f5d728  vendor/shopware/administration/Resources/app/administration/src/app/service/app-cms.service.js
+e9184d6221829e45400460efcb4ecb96  vendor/shopware/administration/Resources/app/administration/src/app/service/app-cms.service.js
 e452eeac606a6c2d14f01bcd111dba16  vendor/shopware/administration/Resources/app/administration/src/app/service/custom-field.service.js
 9beaf27e1c9d096166ce8bad10441a5c  vendor/shopware/administration/Resources/app/administration/src/app/service/extension-helper.service.js
 5a8c32ca5294f9ceb48573aaee8079b8  vendor/shopware/administration/Resources/app/administration/src/app/service/feature.service.js
@@ -3607,7 +3607,7 @@ ce9a26ad88c14c594c8b09c4843f359d  vendor/shopware/administration/Resources/publi
 54c0863da9ed429f08b8b665c87e36fa  vendor/shopware/administration/Resources/public/d426fe016d96aeaea421.worker.js
 f0df87625b41a3e2281fa774f6af4bbc  vendor/shopware/administration/Resources/public/e1469d2e889f70111c26.worker.js
 b46b318aafce8937e3b1b85613daad9b  vendor/shopware/administration/Resources/public/e2ca1dcd29f88ab024a3.worker.js
-50b92a00d41b31706f29b34d97f1574c  vendor/shopware/administration/Resources/public/static/js/app.js
+a849690a9c3abe31463c3dce667d950d  vendor/shopware/administration/Resources/public/static/js/app.js
 d53f535c94da0ddc19719f31dacb8a3f  vendor/shopware/administration/Resources/public/static/js/commons.js
 d052367b8f650c33028a2f45eb9b3bed  vendor/shopware/administration/Resources/public/static/js/runtime.js
 90b7325720aa34229a99bae813ad64df  vendor/shopware/administration/Resources/public/static/js/vendors-node.js
@@ -5460,7 +5460,7 @@ acc904c4fe0f1ced1f0936a961ca9007  vendor/shopware/core/Content/Test/Media/Subscr
 1b7a8a67130da0f54f1534ebcf8ba0cf  vendor/shopware/core/Content/Test/Media/TypeDetector/AudioTypeDetectorTest.php
 74b4827b122e49d9a61a4a8244126bd1  vendor/shopware/core/Content/Test/Media/TypeDetector/DefaultTypeDetectorTest.php
 1f5cbcd83cd10102749d81ecf8db8dd5  vendor/shopware/core/Content/Test/Media/TypeDetector/DocumentTypeDetectorTest.php
-ab41c83dbe71d1a8a7a9f8cfe1f1741f  vendor/shopware/core/Content/Test/Media/TypeDetector/ImageTypeDetectorTest.php
+9614eb928c77226947c9a82399204488  vendor/shopware/core/Content/Test/Media/TypeDetector/ImageTypeDetectorTest.php
 14e3edb4ba579aaa5f1b99c8cf68f2da  vendor/shopware/core/Content/Test/Media/TypeDetector/TypeDetectorTest.php
 1de3d09c8e774d8379a921aafe928aa5  vendor/shopware/core/Content/Test/Media/TypeDetector/VideoTypeDetectorTest.php
 87824fefdf48c9b23abcdbaa96b0f2fb  vendor/shopware/core/Content/Test/Media/fixtures/test.php
@@ -5595,7 +5595,7 @@ aba556aeb7dbc6fc6a8fb35d3c0d0a57  vendor/shopware/core/Framework/Adapter/Command
 5de7b67091dec318d700898bf84517f2  vendor/shopware/core/Framework/Adapter/Console/ShopwareStyle.php
 65237e2bc98fd52df47ef9a8c07bdf7f  vendor/shopware/core/Framework/Adapter/Filesystem/AbstractFilesystem.php
 c4154a84761c0b23f4b9e4f56affdf08  vendor/shopware/core/Framework/Adapter/Filesystem/Adapter/AdapterFactoryInterface.php
-726f096e3ce6b8337d01914e1a809b2d  vendor/shopware/core/Framework/Adapter/Filesystem/Adapter/AwsS3v3Factory.php
+a9bd7c8c3537e5b3ec3bb42aa62d1c16  vendor/shopware/core/Framework/Adapter/Filesystem/Adapter/AwsS3v3Factory.php
 424423fa93b774f96ef4697e28cfbe7a  vendor/shopware/core/Framework/Adapter/Filesystem/Adapter/GoogleStorageFactory.php
 6e4ae90b58008fd1ff7890a0a0a2fb19  vendor/shopware/core/Framework/Adapter/Filesystem/Adapter/LocalFactory.php
 2ecbed0104a96f9dd34146497d699795  vendor/shopware/core/Framework/Adapter/Filesystem/Exception/AdapterFactoryNotFoundException.php
@@ -9037,14 +9037,14 @@ bca58d2b61f4e7f11448f1c5460eeae8  vendor/shopware/recovery/Common/src/Steps/Vali
 c6e26b8713a6e8fcf6b402520330a4ce  vendor/shopware/recovery/Common/src/Utils.php
 8bad966e7c7671deda00dfbba79a3449  vendor/shopware/recovery/Common/vendor/autoload.php
 b308ffadb04d16ccac5b2622660b8072  vendor/shopware/recovery/Common/vendor/composer/ClassLoader.php
-1259a05d8e88a92135c92454f2244d69  vendor/shopware/recovery/Common/vendor/composer/InstalledVersions.php
+4430349a747693389682c8d3bc744c67  vendor/shopware/recovery/Common/vendor/composer/InstalledVersions.php
 ce1a638b69c38adf707bf90a4e47b3d5  vendor/shopware/recovery/Common/vendor/composer/autoload_classmap.php
 22ae3be12d604be1ab03d0c445b80adf  vendor/shopware/recovery/Common/vendor/composer/autoload_files.php
 8f5440bca5e6b6032f149c129c8fa462  vendor/shopware/recovery/Common/vendor/composer/autoload_namespaces.php
 fcdebfcd8702b074bda058c8561d7150  vendor/shopware/recovery/Common/vendor/composer/autoload_psr4.php
 8fa0d0a67a509bf6c170b6a57cd61484  vendor/shopware/recovery/Common/vendor/composer/autoload_real.php
 e595f6f897513bf2a7a24c698e0c56ac  vendor/shopware/recovery/Common/vendor/composer/autoload_static.php
-cfdd8261f4cd72095c080a25b75c85af  vendor/shopware/recovery/Common/vendor/composer/installed.php
+2e672a347527623f7faf0b1e8c4b1a87  vendor/shopware/recovery/Common/vendor/composer/installed.php
 26a3d979002f47fe676004523a5241c3  vendor/shopware/recovery/Common/vendor/composer/platform_check.php
 4f79e07574d3dac64bdb533ab5d042d7  vendor/shopware/recovery/Common/vendor/container-interop/container-interop/src/Interop/Container/ContainerInterface.php
 ffcdc43f36fc0e4059e38a74556360c5  vendor/shopware/recovery/Common/vendor/container-interop/container-interop/src/Interop/Container/Exception/ContainerException.php
@@ -11955,7 +11955,7 @@ e9768db21ea2c4633d8e3ddf419d1c32  vendor/shopware/storefront/Controller/Document
 39b55dfb7c31f92a2e4e8689f6bac0c7  vendor/shopware/storefront/Controller/LandingPageController.php
 634545e0055bf5bc6b9162833b6fb717  vendor/shopware/storefront/Controller/MaintenanceController.php
 2ebf39c7c73981bab4c4999edbee8eb8  vendor/shopware/storefront/Controller/NavigationController.php
-f47400a17b479e2af46fa3afdd50f94b  vendor/shopware/storefront/Controller/NewsletterController.php
+8aedd5f8e51044601e41cfdf7d667b6a  vendor/shopware/storefront/Controller/NewsletterController.php
 bfab1586c7a7fcc6bd8ee490df513498  vendor/shopware/storefront/Controller/ProductController.php
 709c568afefb99595918ab63375d7067  vendor/shopware/storefront/Controller/RegisterController.php
 f5480e466b7dcb6da459d6a8b43e8640  vendor/shopware/storefront/Controller/SearchController.php
