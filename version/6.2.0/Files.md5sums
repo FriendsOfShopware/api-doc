@@ -3206,7 +3206,6 @@ b6e8effa0dfb5f954a6ae11f900b10d0  vendor/shopware/core/Checkout/Test/Payment/Han
 c5e931cfcf686c134411c9415f78b88d  vendor/shopware/core/Checkout/Test/Payment/Handler/SyncTestPaymentHandler.php
 6698dcd781b448e6218dd047fb226580  vendor/shopware/core/Checkout/Test/Payment/Handler/V630/AsyncTestPaymentHandler.php
 d4ff8e6e393f4fa82e86e07387380af4  vendor/shopware/core/Checkout/Test/Payment/Handler/V630/SyncTestPaymentHandler.php
-0aa4d2d859f5f7953f72f06cef86ee73  vendor/shopware/core/Checkout/Test/Payment/JWTFactoryTest.php
 f44de25d842cf5e17b00ac75a1a57f05  vendor/shopware/core/Checkout/Test/Payment/JWTFactoryV2Test.php
 609ef99a5c708348cb8d8b8edd9634c4  vendor/shopware/core/Checkout/Test/Payment/PaymentMethodRepositoryTest.php
 11d4002d9af64701bdb74c8b4638b962  vendor/shopware/core/Checkout/Test/Payment/PaymentServiceTest.php
@@ -3998,7 +3997,6 @@ f3c8a1cf696415e1c0d8ebe46b0c7ace  vendor/shopware/core/Content/Test/ImportExport
 134c41037e44fff587398fb04e5fa19b  vendor/shopware/core/Content/Test/MailTemplate/Api/MailActionControllerTest.php
 2e14630a63b91c1c6db1cd120322de05  vendor/shopware/core/Content/Test/MailTemplate/Api/MailHeaderFooterApiTest.php
 cb22cebab743eda95cd8235a92a3a152  vendor/shopware/core/Content/Test/MailTemplate/Repository/MailHeaderFooterRepositoryTest.php
-8ee1d25e8233b32e8f5fad02bb39467b  vendor/shopware/core/Content/Test/MailTemplate/Service/MailerFactoryTest.php
 eadcf40ab77294a46518b73178c0afd1  vendor/shopware/core/Content/Test/MailTemplate/Service/MailerTransportFactoryTest.php
 64b81e86eb6cf1b4b31abfc57e78130a  vendor/shopware/core/Content/Test/Media/Aggregate/MediaFolderConfigurationThumbnailSize/MediaFolderConfigurationMediaThumbnailSizeTest.php
 7d96aa72f019865abef2940bf89b200c  vendor/shopware/core/Content/Test/Media/Aggregate/MediaFolder/MediaFolderTest.php
@@ -5208,10 +5206,8 @@ c49664e8e13baaf80450f73e04575646  vendor/shopware/core/Framework/Test/MessageQue
 f0749abf48452d3a5b6650edbd1ff951  vendor/shopware/core/Framework/Test/MessageQueue/fixtures/TestMessage.php
 f61b5eeda66bfcad9ac2f02c123a70ef  vendor/shopware/core/Framework/Test/Migration/Api/MigrationControllerTest.php
 45ba20e8be9eab90192de2d264b5ddc7  vendor/shopware/core/Framework/Test/Migration/MigrationCollectionRuntimeTest.php
-8e91ade009b891b5c4bb41e8deb5088a  vendor/shopware/core/Framework/Test/Migration/MigrationCollectorTest.php
 2aeb10fdc6b6a6d20c97994f2d68447b  vendor/shopware/core/Framework/Test/Migration/MigrationCommandTest.php
 a20751f023966205d8a998758658f1d0  vendor/shopware/core/Framework/Test/Migration/MigrationLoaderTest.php
-ec1e66657fb50afe08e221197fdebc17  vendor/shopware/core/Framework/Test/Migration/MigrationRuntimeTest.php
 30c67fa7657c59e5dfb4526798f547f1  vendor/shopware/core/Framework/Test/Migration/MigrationSourceTest.php
 7a4fc0a5bac2fcea42dafb9341afda57  vendor/shopware/core/Framework/Test/Migration/MigrationStepTest.php
 4528ed70ac800cf431bf0189c01547d6  vendor/shopware/core/Framework/Test/Migration/MigrationTestBehaviour.php
@@ -6079,7 +6075,6 @@ b9467ddbc787e75b3c41c3aa6b1f99a9  vendor/shopware/elasticsearch/Framework/Test/I
 7fa01ca19d07c1238ed6b8f9cde8fe4d  vendor/shopware/elasticsearch/Product/SearchKeywordReplacement.php
 3d3cc7d6c592111f1bf22f735735f2eb  vendor/shopware/elasticsearch/Resources/config/services.xml
 054ad27b21227117541a3583f1f193e6  vendor/shopware/elasticsearch/Test/ElasticsearchTestTestBehaviour.php
-dafc712c68d4cb4f047cb3fe8126db7b  vendor/shopware/elasticsearch/Test/Indexing/IndexMessageDispatcherTest.php
 0db97ef05a1767109d639ce7e5d27c52  vendor/shopware/elasticsearch/Test/Product/ElasticsearchProductDefinitionExtension.php
 e6fd0384c7e708a816aaf29dbe2070cb  vendor/shopware/elasticsearch/Test/Product/ElasticsearchProductTest.php
 95ed3a5e02e60eb8e4a5000ce8f37f2f  vendor/shopware/elasticsearch/Test/Product/ProductSearchBuilderTest.php
