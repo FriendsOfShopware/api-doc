@@ -3920,7 +3920,7 @@ e6cfed040f3e226956c5f7da6e6c502d  vendor/shopware/administration/Resources/app/a
 4c14dd1cf25ded6132cc9209488690e5  vendor/shopware/administration/Resources/app/administration/test/worker/admin-worker.worker.spec.js
 0d8c682af6638d38db0808cdb6b872c2  vendor/shopware/administration/Resources/app/administration/twigVuePlugin/lib/index.js
 3183c27f0cfcd698e055efc77fb1a1f4  vendor/shopware/administration/Resources/app/administration/twigVuePlugin/lib/processors/twig-vue-processor.js
-4c40f773caeb104a7f9a5c2c6a0c0d29  vendor/shopware/administration/Resources/app/administration/webpack.config.js
+d852bc13faec4ced05ec921e078d08f0  vendor/shopware/administration/Resources/app/administration/webpack.config.js
 bde12b54ea72665becb458c62ef67c8c  vendor/shopware/administration/Resources/app/common/eslint-config-base/index.js
 2b52b36785649d0e6760f17e212394ee  vendor/shopware/administration/Resources/app/common/webpack-copy-after-build/index.js
 5539220ff4db2f475d2326dfba0f4a7b  vendor/shopware/administration/Resources/app/common/webpack-kill-process-on-failed-build/index.js
@@ -9992,11 +9992,11 @@ c6e26b8713a6e8fcf6b402520330a4ce  vendor/shopware/recovery/Common/src/Utils.php
 e662b64ae78cde37fa1f4155fc484772  vendor/shopware/recovery/Common/vendor/composer/ClassLoader.php
 13e6e46602b746a98d692a8c1b663e3c  vendor/shopware/recovery/Common/vendor/composer/InstalledVersions.php
 5cbed119556ccffa71d034360e8cbf6e  vendor/shopware/recovery/Common/vendor/composer/autoload_classmap.php
-95071c307605fbf1b5abfad73caa1f25  vendor/shopware/recovery/Common/vendor/composer/autoload_files.php
+f8892e49b9fdb5b5abbf2a40a5eba67b  vendor/shopware/recovery/Common/vendor/composer/autoload_files.php
 8f5440bca5e6b6032f149c129c8fa462  vendor/shopware/recovery/Common/vendor/composer/autoload_namespaces.php
 f9f5a9764fa06bc0143c2ae1aeebee36  vendor/shopware/recovery/Common/vendor/composer/autoload_psr4.php
 8fa0d0a67a509bf6c170b6a57cd61484  vendor/shopware/recovery/Common/vendor/composer/autoload_real.php
-c9492fc6b13e667a6b20bfe7759ea8af  vendor/shopware/recovery/Common/vendor/composer/autoload_static.php
+b12ea352479e321ca8154b64f3d0db6c  vendor/shopware/recovery/Common/vendor/composer/autoload_static.php
 a82f299df32b1ec3d032391530f18370  vendor/shopware/recovery/Common/vendor/composer/installed.php
 26a3d979002f47fe676004523a5241c3  vendor/shopware/recovery/Common/vendor/composer/platform_check.php
 4f79e07574d3dac64bdb533ab5d042d7  vendor/shopware/recovery/Common/vendor/container-interop/container-interop/src/Interop/Container/ContainerInterface.php
