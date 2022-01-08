@@ -25,8 +25,6 @@ jobs:
 
      - name: Clone api-doc
        uses: actions/checkout@v2
-       with:
-         path: api-doc
 
      - name: Dump Info
        run: |
@@ -37,7 +35,6 @@ jobs:
         add: '.'
         author_name: Frosh Bot
         author_email: bot@fos.gg
-        cwd: './api-doc'
         message: 'Updated Swagger definitions'
        env:
          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} # Leave this line unchanged
