@@ -1,12 +1,8 @@
 <?php
 
-$url = $_SERVER['argv'][1];
-$listing = [];
-
-function fetch($path) {
-    global $url;
-
-    $ch = curl_init($url . $path);
+function fetch($path)
+{
+    $ch = curl_init('http://localhost:8000' . $path);
     curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
     $json = curl_exec($ch);
 
@@ -26,21 +22,21 @@ function fetch($path) {
         var_dump($api);
         return null;
     }
-    
+
     if (!isset($api['openapi'])) {
         return null;
     }
 
     $api['servers'] = [
         [
-            'url' => 'http://localhost'
-        ]
+            'url' => 'http://localhost',
+        ],
     ];
 
     return $api;
 }
 
-function update($updateInfo)
+function updateShopware($updateInfo)
 {
     $zipName = basename($updateInfo['link']);
 
@@ -54,15 +50,13 @@ function update($updateInfo)
     echo '=> Updating ' . $updateInfo['version'] . PHP_EOL;
     exec('php public/recovery/update/index.php -n');
     exec('rm -rf update-assets');
-
-    dump($updateInfo['version']);
 }
 
-function dump(string $currentVersion) {
-    global $listing;
-    $apiVersion = substr($currentVersion, 2, 1);
+function dumpApiInfo(string $currentVersion)
+{
+    $apiVersion = $currentVersion[2];
     $apiPath = '/v' . $apiVersion;
-    
+
     if ($apiVersion >= 4) {
         $apiPath = '';
     }
@@ -78,43 +72,118 @@ function dump(string $currentVersion) {
 
     if ($api) {
         file_put_contents($outputDir . '/api.json', json_encode($api, JSON_UNESCAPED_SLASHES));
-        $listing[] = [
-            'url' => '/version/' . $currentVersion . '/api.json',
-            'name' => 'Management API (' . $currentVersion . ')'
-        ];
     }
 
     if ($scApi) {
         file_put_contents($outputDir . '/sales-channel-api.json', json_encode($scApi, JSON_UNESCAPED_SLASHES));
-        $listing[] = [
-            'url' => '/version/' . $currentVersion . '/sales-channel-api.json',
-            'name' => 'Sales Channel API (' . $currentVersion . ')'
-        ];
     }
 
     if ($stApi) {
         file_put_contents($outputDir . '/store-api.json', json_encode($stApi, JSON_UNESCAPED_SLASHES));
-        $listing[] = [
-            'url' => '/version/' . $currentVersion . '/store-api.json',
-            'name' => 'Store API (' . $currentVersion . ')'
-        ];
     }
-    
+
     exec("find vendor/shopware -type f \( -iname '*.php' -o -iname '*.twig' -o -iname '*.js' -o -iname '*.scss' -o -iname '*.xml' \) -print0 | xargs -0 md5sum | sort -k 2 -d > " . $outputDir . '/Files.md5sums');
 }
 
-dump('6.1.0');
+function getMissingVersions(array $releases): array
+{
+    $missing = [];
 
-$updates = json_decode(file_get_contents('https://n0g72msg55.execute-api.eu-central-1.amazonaws.com/'), true);
+    foreach ($releases as $release) {
+        if (is_dir(dirname(__DIR__) . '/api-doc/version/' . $release['version'])) {
+            continue;
+        }
 
-foreach ($updates as $update) {
-    update($update);
-    dump($update['version']);
+        $missing[] = $release;
+    }
+
+    return $missing;
 }
 
-$src = dirname(__DIR__) . '/api-doc/version/' . $update['version'] . '/';
-$dist = dirname(__DIR__) . '/api-doc/version/latest/';
+function setUpShopware(array $release)
+{
+    $installFolder = sys_get_temp_dir() . '/' . uniqid('sw', true);
+    if (!mkdir($installFolder) && !is_dir($installFolder)) {
+        throw new \RuntimeException(sprintf('Directory "%s" was not created', $installFolder));
+    }
 
-exec('cp -R ' . $src . ' ' . $dist);
+    chdir($installFolder);
 
-file_put_contents(dirname(__DIR__) . '/api-doc/data.json', json_encode($listing, JSON_PRETTY_PRINT));
+    printf('> Installing Shopware with Version: %s in %s' . PHP_EOL, $release['version'], $installFolder);
+
+    $descriptorspec = [
+        0 => ['pipe', 'r'],
+        1 => ['pipe', 'w'],
+        2 => ['pipe', '/w'],
+    ];
+
+
+    exec('wget -O install.zip -qq ' . $release['download']);
+    exec('unzip -q install.zip');
+
+    $webServer = proc_open('php -S localhost:8000 -t public public/index.php', $descriptorspec, $pipes);
+    register_shutdown_function(static function () use($webServer) {
+        proc_terminate($webServer, 9);
+        proc_close($webServer);
+    });
+
+    exec('php public/recovery/install/index.php --shop-host localhost --db-host 127.0.0.1  --db-user root --db-password shopware --db-name shopware --shop-locale en-GB --shop-currency EUR --admin-username demo  --admin-password demo --admin-email demo@foo.com --admin-locale en-GB --admin-firstname demo --admin-lastname demo -n');
+    exec('echo \'APP_ENV=dev\' >> .env');
+}
+
+function updateSwaggerIndex()
+{
+    $folders = scandir(__DIR__ . '/version/', SCANDIR_SORT_ASCENDING);
+    $listing = [];
+
+    foreach ($folders as $version) {
+        if ($version[0] === '.') {
+            continue;
+        }
+
+        $folderPath = __DIR__ . '/version/' . $version;
+
+        if (\file_exists($folderPath . '/api.json')) {
+            $listing[] = [
+                'url' => '/version/' . $version . '/api.json',
+                'name' => 'Management API (' . $version . ')'
+            ];
+        }
+
+        if (\file_exists($folderPath . '/sales-channel-api.json')) {
+            $listing[] = [
+                'url' => '/version/' . $version . '/sales-channel-api.json',
+                'name' => 'Sales Channel API (' . $version . ')'
+            ];
+        }
+
+        if (\file_exists($folderPath . '/store-api.json')) {
+            $listing[] = [
+                'url' => '/version/' . $version . '/store-api.json',
+                'name' => 'Store API (' . $version . ')'
+            ];
+        }
+    }
+
+    file_put_contents(__DIR__ . '/data.json', json_encode($listing, JSON_PRETTY_PRINT));
+}
+
+$releases = json_decode(file_get_contents('https://n0g72msg55.execute-api.eu-central-1.amazonaws.com/'), true);
+$missingVersions = getMissingVersions($releases);
+
+if ($missingVersions === []) {
+    echo '> API-Doc is up to date' . PHP_EOL;
+    exit(0);
+}
+
+foreach ($missingVersions as $i => $missingVersion) {
+    if ($i === 0) {
+        setUpShopware($missingVersion);
+    } else {
+        updateShopware($missingVersion);
+    }
+
+    dumpApiInfo($missingVersion['version']);
+}
+
+updateSwaggerIndex();

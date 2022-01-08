@@ -3,10 +3,10 @@ name: Generate Composer
 on:
     workflow_dispatch:
     push:
-        branches:
-          - master
-    schedule:
-        - cron: "0 15 * * 2"
+      branches:
+        - master
+      paths:
+        - version.txt
 jobs:
   build:
     runs-on: ubuntu-latest
