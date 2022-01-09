@@ -28,7 +28,7 @@ jobs:
 
      - name: Dump Info
        run: |
-         php dumper.php
+         php generate-api-info.php
     
      - uses: EndBug/add-and-commit@v4
        with:

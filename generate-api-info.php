@@ -122,9 +122,10 @@ function setUpShopware(array $release)
     exec('unzip -q install.zip');
 
     $webServer = proc_open('php -S localhost:8000 -t public public/index.php', $descriptorspec, $pipes);
-    register_shutdown_function(static function () use($webServer) {
+    register_shutdown_function(static function () use($webServer, $installFolder) {
         proc_terminate($webServer, 9);
         proc_close($webServer);
+        exec('rm -rf ' . escapeshellarg($installFolder));
     });
 
     exec('php public/recovery/install/index.php --shop-host localhost --db-host 127.0.0.1  --db-user root --db-password shopware --db-name shopware --shop-locale en-GB --shop-currency EUR --admin-username demo  --admin-password demo --admin-email demo@foo.com --admin-locale en-GB --admin-firstname demo --admin-lastname demo -n');

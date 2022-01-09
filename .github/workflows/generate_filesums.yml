@@ -1,4 +1,4 @@
-name: Generate Composer
+name: Generate MD5 Filesums
 
 on:
     workflow_dispatch:
@@ -19,15 +19,15 @@ jobs:
      - name: Clone api-doc
        uses: actions/checkout@v2
 
-     - name: Generate Composer Info
+     - name: Generate Filesums
        run: |
-         php generate-composer-info.php
+         php generate-file-sums.php
     
      - uses: EndBug/add-and-commit@v4
        with:
         add: '.'
         author_name: Soner Sayakci
         author_email: s.sayakci@shopware.com
-        message: 'chore: Updated Composer information'
+        message: 'chore: Updated MD5 Filesums'
        env:
          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
