@@ -24,7 +24,7 @@ function getMissingVersions(array $releases): array
     return $missing;
 }
 
-$releases = json_decode(file_get_contents('https://n0g72msg55.execute-api.eu-central-1.amazonaws.com/'), true);
+$releases = array_reverse(json_decode(file_get_contents('https://update-api.shopware.com/v1/releases/install?major=6'), true));
 $missingVersions = getMissingVersions($releases);
 
 foreach ($missingVersions as $release) {
@@ -37,7 +37,7 @@ foreach ($missingVersions as $release) {
 
     printf('> Unpacking Shopware with Version: %s in %s' . PHP_EOL, $release['version'], $installFolder);
 
-    exec('wget -O install.zip -qq ' . $release['download']);
+    exec('wget -O install.zip -qq ' . $release['uri']);
     exec('unzip -q install.zip');
 
     exec("find vendor/shopware -type f \( -iname '*.php' -o -iname '*.twig' -o -iname '*.js' -o -iname '*.scss' -o -iname '*.xml' \) -print0 | xargs -0 md5sum | sort -k 2 -d > " . $release['output']);
