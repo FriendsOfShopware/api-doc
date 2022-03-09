@@ -378,5 +378,21 @@
     {
         "url": "\/version\/6.4.8.0\/store-api.json",
         "name": "Store API (6.4.8.0)"
+    },
+    {
+        "url": "\/version\/6.4.8.2\/api.json",
+        "name": "Management API (6.4.8.2)"
+    },
+    {
+        "url": "\/version\/6.4.8.2\/store-api.json",
+        "name": "Store API (6.4.8.2)"
+    },
+    {
+        "url": "\/version\/6.4.9.0\/api.json",
+        "name": "Management API (6.4.9.0)"
+    },
+    {
+        "url": "\/version\/6.4.9.0\/store-api.json",
+        "name": "Store API (6.4.9.0)"
     }
 ]
