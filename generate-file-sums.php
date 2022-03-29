@@ -7,7 +7,7 @@ function getMissingVersions(array $releases): array
     foreach ($releases as $release) {
         $filename = dirname(__DIR__) . '/api-doc/version/' . $release['version'] . '/Files.md5sums';
         if (is_file($filename)) {
-            continue;
+            //continue;
         }
 
         $folder = dirname(__DIR__) . '/api-doc/version/' . $release['version'];
