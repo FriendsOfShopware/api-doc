@@ -147,24 +147,31 @@ function updateSwaggerIndex()
         if (\file_exists($folderPath . '/api.json')) {
             $listing[] = [
                 'url' => '/version/' . $version . '/api.json',
-                'name' => 'Management API (' . $version . ')'
+                'name' => 'Management API (' . $version . ')',
+                'version' => $version
             ];
         }
 
         if (\file_exists($folderPath . '/sales-channel-api.json')) {
             $listing[] = [
                 'url' => '/version/' . $version . '/sales-channel-api.json',
-                'name' => 'Sales Channel API (' . $version . ')'
+                'name' => 'Sales Channel API (' . $version . ')',
+                'version' => $version
             ];
         }
 
         if (\file_exists($folderPath . '/store-api.json')) {
             $listing[] = [
                 'url' => '/version/' . $version . '/store-api.json',
-                'name' => 'Store API (' . $version . ')'
+                'name' => 'Store API (' . $version . ')',
+                'version' => $version
             ];
         }
     }
+
+    usort($listing, static function (array $a, array $b) {
+        return strnatcmp($a['version'], $b['version']);
+    });
 
     file_put_contents(__DIR__ . '/data.json', json_encode($listing, JSON_PRETTY_PRINT));
 }
