@@ -1,12 +1,14 @@
 <?php
 
+$forceGenerate = isset($_SERVER['FORCE_GENERATE']) ? $_SERVER['FORCE_GENERATE'] === '1' : false;
+
 function getMissingVersions(array $releases): array
 {
     $missing = [];
 
     foreach ($releases as $release) {
         $filename = dirname(__DIR__) . '/api-doc/version/' . $release['version'] . '/Files.md5sums';
-        if (is_file($filename)) {
+        if (is_file($filename) && !$forceGenerate) {
             continue;
         }
 

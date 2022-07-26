@@ -4,6 +4,11 @@ on:
     schedule:
       - cron: '0 1 * * *'
     workflow_dispatch:
+      inputs:
+        forceGenerate:
+          description: 'Force generate all md5 sums'
+          default: '0'
+          required: true
     push:
       branches:
         - master
