@@ -4,6 +4,8 @@ $forceGenerate = isset($_SERVER['FORCE_GENERATE']) ? $_SERVER['FORCE_GENERATE'] 
 
 function getMissingVersions(array $releases): array
 {
+    global $forceGenerate;
+
     $missing = [];
 
     foreach ($releases as $release) {
