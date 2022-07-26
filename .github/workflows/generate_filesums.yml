@@ -29,6 +29,8 @@ jobs:
      - name: Generate Filesums
        run: |
          php generate-file-sums.php
+       env:
+          FORCE_GENERATE: ${{ inputs.forceGenerate }}
     
      - uses: EndBug/add-and-commit@v4
        with:

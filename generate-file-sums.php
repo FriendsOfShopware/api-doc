@@ -2,6 +2,8 @@
 
 $forceGenerate = isset($_SERVER['FORCE_GENERATE']) ? $_SERVER['FORCE_GENERATE'] === '1' : false;
 
+echo "Force generate mode: " . var_export($forceGenerate);
+
 function getMissingVersions(array $releases): array
 {
     global $forceGenerate;
