@@ -10945,7 +10945,6 @@ de8d5abf548a421a788d06e130015439  vendor/shopware/recovery/Update/templates/_hea
 1f0c6fc94628552dc1a16a2cad845aa7  vendor/shopware/recovery/autoload.php
 e1cd3e184671df2c1c29e33d58eacb48  vendor/shopware/recovery/copy-assets.php
 47d0359cfd53cc6c797605c792740eb4  vendor/shopware/recovery/test_config.php
-c3b0e12a73d2dc7f13c73234c5bde304  vendor/shopware/recovery/vendor/composer/autoload_files.php
 26a3d979002f47fe676004523a5241c3  vendor/shopware/recovery/vendor/composer/platform_check.php
 2981a22bb9eae534f81619ee6bf26626  vendor/shopware/recovery/vendor/doctrine/instantiator/src/Doctrine/Instantiator/Exception/ExceptionInterface.php
 93ac37e908f20e440b1c9122c74244b8  vendor/shopware/recovery/vendor/doctrine/instantiator/src/Doctrine/Instantiator/Exception/InvalidArgumentException.php

@@ -7157,7 +7157,6 @@ e13f5de0dd51d8b6e3bc2fb2dc6fa3aa  vendor/shopware/recovery/Update/src/Utils.php
 139ae0d8f8f6ad556907cbd41d0153a4  vendor/shopware/recovery/Update/templates/welcome.php
 3f1c5abfaa6962b98e839907081a8b1c  vendor/shopware/recovery/autoload.php
 47d0359cfd53cc6c797605c792740eb4  vendor/shopware/recovery/test_config.php
-cc568c7ca823a21261a0e7d87ded9998  vendor/shopware/recovery/vendor/composer/autoload_files.php
 2981a22bb9eae534f81619ee6bf26626  vendor/shopware/recovery/vendor/doctrine/instantiator/src/Doctrine/Instantiator/Exception/ExceptionInterface.php
 9376de8da94cfb845a26e4fc949d82d9  vendor/shopware/recovery/vendor/doctrine/instantiator/src/Doctrine/Instantiator/Exception/InvalidArgumentException.php
 4054e4ac6c1ca2931875a17bc501697e  vendor/shopware/recovery/vendor/doctrine/instantiator/src/Doctrine/Instantiator/Exception/UnexpectedValueException.php
