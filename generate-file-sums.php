@@ -53,6 +53,7 @@ $ignoredFiles = [
     'vendor/shopware/recovery/vendor/composer/autoload_real.php',
     'vendor/shopware/recovery/vendor/composer/autoload_static.php',
     'vendor/shopware/recovery/vendor/composer/installed.php',
+    'vendor/shopware/recovery/vendor/composer/autoload_files.php',
 ];
 
 $ignoredFilesFilter = [];
