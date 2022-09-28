@@ -81,8 +81,6 @@ function dumpApiInfo(string $currentVersion)
     if ($stApi) {
         file_put_contents($outputDir . '/store-api.json', json_encode($stApi, JSON_UNESCAPED_SLASHES));
     }
-
-    exec("find vendor/shopware -type f \( -iname '*.php' -o -iname '*.twig' -o -iname '*.js' -o -iname '*.scss' -o -iname '*.xml' \) -print0 | xargs -0 md5sum | sort -k 2 -d > " . $outputDir . '/Files.md5sums');
 }
 
 function getMissingVersions(array $releases): array
