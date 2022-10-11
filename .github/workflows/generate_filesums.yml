@@ -1,8 +1,6 @@
 name: Generate MD5 Filesums
 
 on:
-    schedule:
-      - cron: '0 1 * * *'
     workflow_dispatch:
       inputs:
         forceGenerate:
