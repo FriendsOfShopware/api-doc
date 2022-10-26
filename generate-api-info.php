@@ -184,7 +184,7 @@ function updateSwaggerIndex()
     file_put_contents(__DIR__ . '/data.json', json_encode($listing, JSON_PRETTY_PRINT));
 }
 
-$releases = json_decode(file_get_contents('https://n0g72msg55.execute-api.eu-central-1.amazonaws.com/'), true);
+$releases = array_reverse(json_decode(file_get_contents('https://n0g72msg55.execute-api.eu-central-1.amazonaws.com/'), true));
 $missingVersions = getMissingVersions($releases);
 
 if ($missingVersions === []) {
