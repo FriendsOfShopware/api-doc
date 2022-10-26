@@ -2,7 +2,7 @@
 
 $forceGenerate = isset($_SERVER['FORCE_GENERATE']) && $_SERVER['FORCE_GENERATE'] === '1';
 
-echo "Force generate mode: " . var_export($forceGenerate);
+echo "Force generate mode: " . var_export($forceGenerate, true);
 
 function fetch($path)
 {
@@ -90,6 +90,8 @@ function dumpApiInfo(string $currentVersion)
     if ($entitySchema) {
         file_put_contents($outputDir . '/entity-schema.json', json_encode($entitySchema, JSON_UNESCAPED_SLASHES));
     }
+
+    printf('> Dumped files for version %s' . PHP_EOL, $currentVersion);
 }
 
 function getMissingVersions(array $releases): array
