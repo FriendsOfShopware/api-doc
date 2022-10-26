@@ -64,6 +64,7 @@ function dumpApiInfo(string $currentVersion)
     $api = fetch('/api' . $apiPath . '/_info/openapi3.json');
     $scApi = fetch('/sales-channel-api' . $apiPath . '/_info/openapi3.json');
     $stApi = fetch('/store-api' . $apiPath . '/_info/openapi3.json');
+    $entitySchema = fetch('/api' . $apiPath . '/_info/entity-schema.json');
 
     $outputDir = dirname(__DIR__) . '/api-doc/version/' . $currentVersion . '/';
     if (!file_exists($outputDir)) {
@@ -80,6 +81,10 @@ function dumpApiInfo(string $currentVersion)
 
     if ($stApi) {
         file_put_contents($outputDir . '/store-api.json', json_encode($stApi, JSON_UNESCAPED_SLASHES));
+    }
+    
+    if ($entitySchema) {
+        file_put_contents($outputDir . '/entity-schema.json', json_encode($entitySchema, JSON_UNESCAPED_SLASHES));
     }
 }
 
