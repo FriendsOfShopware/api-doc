@@ -1,5 +1,9 @@
 <?php
 
+$forceGenerate = isset($_SERVER['FORCE_GENERATE']) && $_SERVER['FORCE_GENERATE'] === '1';
+
+echo "Force generate mode: " . var_export($forceGenerate);
+
 function fetch($path)
 {
     $ch = curl_init('http://localhost:8000' . $path);
@@ -90,10 +94,11 @@ function dumpApiInfo(string $currentVersion)
 
 function getMissingVersions(array $releases): array
 {
+    global $forceGenerate;
     $missing = [];
 
     foreach ($releases as $release) {
-        if (is_dir(dirname(__DIR__) . '/api-doc/version/' . $release['version'])) {
+        if (is_dir(dirname(__DIR__) . '/api-doc/version/' . $release['version']) && !$forceGenerate) {
             continue;
         }
 

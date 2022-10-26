@@ -4,6 +4,11 @@ on:
     schedule:
       - cron: '0 1 * * *'
     workflow_dispatch:
+      inputs:
+        forceGenerate:
+          description: 'Force generate all api info'
+          default: '0'
+          required: true
     push:
         branches:
           - master
@@ -31,6 +36,8 @@ jobs:
      - name: Dump Info
        run: |
          php generate-api-info.php
+       env:
+         FORCE_GENERATE: ${{ inputs.forceGenerate }}
     
      - uses: EndBug/add-and-commit@v4
        with:
