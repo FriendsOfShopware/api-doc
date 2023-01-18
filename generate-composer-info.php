@@ -21,6 +21,10 @@ if (!file_exists($composerFolder)) {
 $availableVersions = [];
 
 foreach ($tags as $tag) {
+    if (!isset($tag['name'])) {
+        throw new \RuntimeException('Invalid tag data');
+    }
+
     $versionRaw = trim(ltrim($tag['name'], 'v'));
     $folderPath = __DIR__ . '/composer/' . $versionRaw . '/';
     $availableVersions[] = $versionRaw;
