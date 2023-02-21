@@ -33,6 +33,23 @@ foreach ($tags as $tag) {
         continue;
     }
 
+    $phpVersion = "7.2.0";
+
+    if (version_compare('6.5.0.0', $versionRaw, '>=')) {
+        $phpVersion = "8.1.0";
+    } else if (version_compare('6.4.0.0', $versionRaw, '>=')) {
+        $phpVersion = "7.4.0";
+    }
+
+    $stabilityFlags = [];
+
+    if (stripos($versionRaw, 'rc') !== false) {
+        $stabilityFlags = [
+            'minimum-stability' => 'RC',
+            'prefer-stable' => true
+        ];
+    }
+
     foreach ($components as $component) {
         exec('rm -rf ' . escapeshellarg($workDir));
         mkdir($workDir);
@@ -43,13 +60,17 @@ foreach ($tags as $tag) {
             ],
             'config' => [
                 'platform' => [
-                    'php' => version_compare('6.4.0.0', $versionRaw, '>=') ? '7.4.2' : '7.2.0'
+                    'php' => $phpVersion,
                 ]
             ]
-        ];
+        ] + $stabilityFlags;
 
         file_put_contents($workDir . '/composer.json', json_encode($composerJson));
         exec('composer install --no-dev --no-scripts --no-plugins --ignore-platform-reqs -d ' . escapeshellarg($workDir));
+
+        if (!file_exists($workDir . '/composer.lock')) {
+            throw new RuntimeException('No composer.lock found');
+        }
 
         $locks = [];
 
