@@ -4,6 +4,10 @@ on:
     schedule:
       - cron: '0 1 * * *'
     workflow_dispatch:
+      forceGenerate:
+          description: 'Force generate all md5 sums'
+          default: '0'
+          required: true
     push:
       branches:
         - master
@@ -24,6 +28,8 @@ jobs:
      - name: Generate Composer Info
        run: |
          php generate-composer-info.php
+       env:
+        FORCE_GENERATE: ${{ inputs.forceGenerate }}
     
      - uses: EndBug/add-and-commit@v4
        with:

@@ -1,5 +1,7 @@
 <?php
 
+$forceGenerate = isset($_SERVER['FORCE_GENERATE']) && $_SERVER['FORCE_GENERATE'] === '1';
+
 $ch = curl_init('https://api.github.com/repos/shopware/platform/tags?per_page=100');
 curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
 curl_setopt($ch, CURLOPT_HTTPHEADER, [
@@ -29,7 +31,7 @@ foreach ($tags as $tag) {
     $folderPath = __DIR__ . '/composer/' . $versionRaw . '/';
     $availableVersions[] = $versionRaw;
 
-    if (file_exists($folderPath)) {
+    if (!$forceGenerate && file_exists($folderPath)) {
         continue;
     }
 
