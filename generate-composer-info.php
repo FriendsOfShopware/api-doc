@@ -1,6 +1,6 @@
 <?php
 
-$ch = curl_init('https://api.github.com/repos/shopware/platform/tags');
+$ch = curl_init('https://api.github.com/repos/shopware/platform/tags?per_page=100');
 curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
 curl_setopt($ch, CURLOPT_HTTPHEADER, [
     'User-Agent: Composer Dumper'
