@@ -12,7 +12,7 @@ Usage:
 
 ```bash
 cd [ToYourInstallation]
-wget https://raw.githubusercontent.com/FriendsOfShopware/api-doc/master/file-checker.php
+wget https://raw.githubusercontent.com/FriendsOfShopware/api-doc/main/file-checker.php
 php file-checker.php
 rm file-checker.php
 ```
