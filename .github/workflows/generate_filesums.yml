@@ -33,8 +33,8 @@ jobs:
      - uses: EndBug/add-and-commit@v4
        with:
         add: '.'
-        author_name: Soner Sayakci
-        author_email: s.sayakci@shopware.com
+        author_name: Frosh Automation
+        author_email: ci@fos.gg
         message: 'chore: Updated MD5 Filesums'
        env:
-         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+         GITHUB_TOKEN: ${{ secrets.FROSH_CI_TOKEN }}
