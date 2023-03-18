@@ -2,13 +2,7 @@
 
 $forceGenerate = isset($_SERVER['FORCE_GENERATE']) && $_SERVER['FORCE_GENERATE'] === '1';
 
-$ch = curl_init('https://api.github.com/repos/shopware/platform/tags?per_page=100');
-curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
-curl_setopt($ch, CURLOPT_HTTPHEADER, [
-    'User-Agent: Composer Dumper'
-]);
-$tags = json_decode(curl_exec($ch), true);
-curl_close($ch);
+$tags = fetch_tags();
 
 $workDir = tempnam(sys_get_temp_dir(), uniqid('composer', true));
 
@@ -92,3 +86,20 @@ foreach ($tags as $tag) {
 }
 
 file_put_contents($composerFolder . '/versions.json', json_encode($availableVersions, JSON_PRETTY_PRINT));
+
+
+function fetch_tags(int $page = 1) {
+    $ch = curl_init('https://api.github.com/repos/shopware/platform/tags?per_page=100&page=' . $page);
+    curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+    curl_setopt($ch, CURLOPT_HTTPHEADER, [
+        'User-Agent: Composer Dumper'
+    ]);
+    $tags = json_decode(curl_exec($ch), true);
+    curl_close($ch);
+
+    if (count($tags) === 100) {
+        $tags = array_merge($tags, fetch_tags($page + 1));
+    }
+
+    return $tags;
+}
