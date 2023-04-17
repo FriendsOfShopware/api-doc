@@ -23,6 +23,8 @@ jobs:
 
      - name: Clone api-doc
        uses: actions/checkout@v2
+       with:
+        token: ${{ secrets.FROSH_CI_TOKEN }}
 
      - name: Generate Filesums
        run: |
