@@ -11,11 +11,7 @@ function getMissingVersions(array $releases): array
     $missing = [];
 
     foreach ($releases as $release) {
-        if ($release['sha1'] === 'fake') {
-            continue;
-        }
-
-        $folder = dirname(__DIR__) . '/api-doc/version/' . $release['version'];
+        $folder = dirname(__DIR__) . '/api-doc/version/' . ltrim($release['name'], 'v');
 
         $filename = $folder . '/Files.md5sums';
         if (!$forceGenerate && is_file($filename)) {
@@ -34,30 +30,30 @@ function getMissingVersions(array $releases): array
     return $missing;
 }
 
-$releases = array_reverse(json_decode(file_get_contents('https://update-api.shopware.com/v1/releases/install?major=6'), true));
-$missingVersions = getMissingVersions($releases);
+$tags = fetch_tags();
+$missingVersions = getMissingVersions($tags);
 
 $ignoredFiles = [
-    'vendor/shopware/recovery/Common/vendor/autoload.php',
-    'vendor/shopware/recovery/Common/vendor/composer/ClassLoader.php',
-    'vendor/shopware/recovery/Common/vendor/composer/InstalledVersions.php',
-    'vendor/shopware/recovery/Common/vendor/composer/autoload_classmap.php',
-    'vendor/shopware/recovery/Common/vendor/composer/autoload_files.php',
-    'vendor/shopware/recovery/Common/vendor/composer/autoload_namespaces.php',
-    'vendor/shopware/recovery/Common/vendor/composer/autoload_psr4.php',
-    'vendor/shopware/recovery/Common/vendor/composer/autoload_real.php',
-    'vendor/shopware/recovery/Common/vendor/composer/autoload_static.php',
-    'vendor/shopware/recovery/Common/vendor/composer/installed.php',
-    'vendor/shopware/recovery/vendor/autoload.php',
-    'vendor/shopware/recovery/vendor/composer/ClassLoader.php',
-    'vendor/shopware/recovery/vendor/composer/InstalledVersions.php',
-    'vendor/shopware/recovery/vendor/composer/autoload_classmap.php',
-    'vendor/shopware/recovery/vendor/composer/autoload_namespaces.php',
-    'vendor/shopware/recovery/vendor/composer/autoload_psr4.php',
-    'vendor/shopware/recovery/vendor/composer/autoload_real.php',
-    'vendor/shopware/recovery/vendor/composer/autoload_static.php',
-    'vendor/shopware/recovery/vendor/composer/installed.php',
-    'vendor/shopware/recovery/vendor/composer/autoload_files.php',
+    'Recovery/Common/vendor/autoload.php',
+    'Recovery/Common/vendor/composer/ClassLoader.php',
+    'Recovery/Common/vendor/composer/InstalledVersions.php',
+    'Recovery/Common/vendor/composer/autoload_classmap.php',
+    'Recovery/Common/vendor/composer/autoload_files.php',
+    'Recovery/Common/vendor/composer/autoload_namespaces.php',
+    'Recovery/Common/vendor/composer/autoload_psr4.php',
+    'Recovery/Common/vendor/composer/autoload_real.php',
+    'Recovery/Common/vendor/composer/autoload_static.php',
+    'Recovery/Common/vendor/composer/installed.php',
+    'Recovery/vendor/autoload.php',
+    'Recovery/vendor/composer/ClassLoader.php',
+    'Recovery/vendor/composer/InstalledVersions.php',
+    'Recovery/vendor/composer/autoload_classmap.php',
+    'Recovery/vendor/composer/autoload_namespaces.php',
+    'Recovery/vendor/composer/autoload_psr4.php',
+    'Recovery/vendor/composer/autoload_real.php',
+    'Recovery/vendor/composer/autoload_static.php',
+    'Recovery/vendor/composer/installed.php',
+    'Recovery/vendor/composer/autoload_files.php',
 ];
 
 $ignoredFilesFilter = [];
@@ -74,12 +70,49 @@ foreach ($missingVersions as $release) {
 
     chdir($installFolder);
 
-    printf('> Unpacking Shopware with Version: %s in %s' . PHP_EOL, $release['version'], $installFolder);
+    printf('> Unpacking Shopware with Version: %s in %s' . PHP_EOL, $release['name'], $installFolder);
 
-    exec('wget -O install.zip -qq ' . $release['uri']);
+    exec('wget -O install.zip -qq ' . $release['zipball_url']);
     exec('unzip -q install.zip');
 
-    exec("find vendor/shopware -type f \( " . implode(' ', $ignoredFilesFilter) . " -iname '*.php' -o -iname '*.twig' -o -iname '*.js' -o -iname '*.scss' -o -iname '*.xml' \) -print0 | xargs -0 md5sum | sort -k 2 -d > " . $release['output']);
+    exec("find shopware-platform-*/src -type f \( " . implode(' ', $ignoredFilesFilter) . " -iname '*.php' -o -iname '*.twig' -o -iname '*.js' -o -iname '*.scss' -o -iname '*.xml' \) -print0 | xargs -0 md5sum | sort -k 2 -d > " . $release['output']);
 
     exec('rm -rf ' . escapeshellarg($installFolder));
+
+    $filePath = $release['output'];
+    $tmpFilePath = $filePath . '.tmp';
+
+    $reading = fopen($filePath, 'r');
+    $writing = fopen($tmpFilePath, 'w');
+
+    while (!feof($reading)) {
+        $line = fgets($reading);
+
+        $newLine = preg_replace_callback('/shopware-platform-.*\/src\/(.)/', function ($matches) {
+            return 'vendor/shopware/' . strtolower($matches[1]);
+        }, $line);
+
+        fputs($writing, $newLine);
+    }
+
+    fclose($reading);
+    fclose($writing);
+
+    rename($tmpFilePath, $filePath);
+}
+
+function fetch_tags(int $page = 1) {
+    $ch = curl_init('https://api.github.com/repos/shopware/platform/tags?per_page=100&page=' . $page);
+    curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+    curl_setopt($ch, CURLOPT_HTTPHEADER, [
+        'User-Agent: Composer Dumper'
+    ]);
+    $tags = json_decode(curl_exec($ch), true);
+    curl_close($ch);
+
+    if (count($tags) === 100) {
+        $tags = array_merge($tags, fetch_tags($page + 1));
+    }
+
+    return $tags;
 }
