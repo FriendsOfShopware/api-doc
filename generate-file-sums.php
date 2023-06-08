@@ -11,6 +11,10 @@ function getMissingVersions(array $releases): array
     $missing = [];
 
     foreach ($releases as $release) {
+        if ($release['sha1'] === 'fake') {
+            continue;
+        }
+
         $folder = dirname(__DIR__) . '/api-doc/version/' . $release['version'];
 
         $filename = $folder . '/Files.md5sums';
