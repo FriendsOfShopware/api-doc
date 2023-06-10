@@ -2,7 +2,7 @@
 
 $forceGenerate = isset($_SERVER['FORCE_GENERATE']) && $_SERVER['FORCE_GENERATE'] === '1';
 
-echo "Force generate mode: " . var_export($forceGenerate, true);
+echo "Force generate mode: " . var_export($forceGenerate, true) . PHP_EOL;
 
 function getMissingVersions(array $releases): array
 {
@@ -24,7 +24,7 @@ function getMissingVersions(array $releases): array
             }
         }
 
-        $missing[] = $release + ['output' => $filename];
+        $missing[] = $release + ['output' => $folder];
     }
 
     return $missing;
@@ -62,6 +62,34 @@ foreach ($ignoredFiles as $ignoredFile) {
     $ignoredFilesFilter[] = '-not -iwholename \'' . $ignoredFile . '\'';
 }
 
+/**
+ * @param $output
+ * @return void
+ */
+function fixPaths($output)
+{
+    $filePath = $output;
+    $tmpFilePath = $filePath . '.tmp';
+
+    $reading = fopen($filePath, 'r');
+    $writing = fopen($tmpFilePath, 'w');
+
+    while (!feof($reading)) {
+        $line = fgets($reading);
+
+        $newLine = preg_replace_callback('/shopware-platform-\w+\/src\/(\w+)/', function ($matches) {
+            return 'vendor/shopware/' . strtolower($matches[1]);
+        }, $line);
+
+        fputs($writing, $newLine);
+    }
+
+    fclose($reading);
+    fclose($writing);
+
+    rename($tmpFilePath, $filePath);
+}
+
 foreach ($missingVersions as $release) {
     $installFolder = sys_get_temp_dir() . '/' . uniqid('sw', true);
     if (!mkdir($installFolder) && !is_dir($installFolder)) {
@@ -75,30 +103,15 @@ foreach ($missingVersions as $release) {
     exec('wget -O install.zip -qq ' . $release['zipball_url']);
     exec('unzip -q install.zip');
 
-    exec("find shopware-platform-*/src -type f \( " . implode(' ', $ignoredFilesFilter) . " -iname '*.php' -o -iname '*.twig' -o -iname '*.js' -o -iname '*.scss' -o -iname '*.xml' \) -print0 | xargs -0 md5sum | sort -k 2 -d > " . $release['output']);
+    $outputFolder = $release['output'];
+
+    exec("find shopware-platform-*/src -type f \( " . implode(' ', $ignoredFilesFilter) . " -iname '*.php' -o -iname '*.twig' -o -iname '*.js' -o -iname '*.scss' -o -iname '*.xml' \) -print0 | xargs -0 md5sum | sort -k 2 -d > " . $outputFolder . '/Files.md5sums');
+    exec("find shopware-platform-*/src -type f \( " . implode(' ', $ignoredFilesFilter) . " -iname '*.php' -o -iname '*.twig' -o -iname '*.js' -o -iname '*.scss' -o -iname '*.xml' \) -print0 | xargs -0 xxhsum | sort -k 2 -d > " . $outputFolder . '/Files.xxhsums');
 
     exec('rm -rf ' . escapeshellarg($installFolder));
 
-    $filePath = $release['output'];
-    $tmpFilePath = $filePath . '.tmp';
-
-    $reading = fopen($filePath, 'r');
-    $writing = fopen($tmpFilePath, 'w');
-
-    while (!feof($reading)) {
-        $line = fgets($reading);
-
-        $newLine = preg_replace_callback('/shopware-platform-.*\/src\/(.)/', function ($matches) {
-            return 'vendor/shopware/' . strtolower($matches[1]);
-        }, $line);
-
-        fputs($writing, $newLine);
-    }
-
-    fclose($reading);
-    fclose($writing);
-
-    rename($tmpFilePath, $filePath);
+    fixPaths($outputFolder . '/Files.md5sums');
+    fixPaths($outputFolder . '/Files.xxhsums');
 }
 
 function fetch_tags(int $page = 1) {
