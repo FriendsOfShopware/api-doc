@@ -19,7 +19,12 @@ jobs:
     steps:
      - uses: shivammathur/setup-php@v2
        with:
-        php-version: '7.4'
+        php-version: '8.1'
+
+     - name: Install xxhash
+       run: |
+        apt-get update
+        apt-get install -y xxhash
 
      - name: Clone api-doc
        uses: actions/checkout@v2
