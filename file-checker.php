@@ -1,5 +1,7 @@
 <?php
 
+$hashType = version_compare(\PHP_VERSION, '8.1.0', '>=') ? 'xxh64' : 'md5';
+
 $installedVersion = getUsedShopwareVersion();
 echo '=> Detected Shopware Version: ' . $installedVersion . PHP_EOL;
 $md5Sums = getMd5SumsForVersion($installedVersion);
@@ -11,7 +13,7 @@ foreach ($md5Sums as $row) {
     $fileAvailable = is_file($baseDir . $file);
 
     if ($fileAvailable) {
-        $md5Sum = md5_file($baseDir . $file);
+        $md5Sum = hash_file($hashType, $baseDir . $file);
 
         // This file differs on update systems. This change is missing in update packages lol!
         // @see: https://github.com/shopware/platform/commit/957e605c96feef67a6c759f00c58e35d2d1ac84f#diff-e49288a50f0d7d8acdabb5ffef2edcd5ac4f4126f764d3153d19913ce98aba1cL10-R80
@@ -43,7 +45,7 @@ function getUsedShopwareVersion(): string
     $lock = json_decode(file_get_contents(__DIR__ . '/composer.lock'), true);
     foreach ($lock['packages'] as $package) {
         if ($package['name'] === 'shopware/core') {
-            return $package['version'];
+            return ltrim($package['version'], 'v');
         }
     }
 
@@ -53,7 +55,11 @@ function getUsedShopwareVersion(): string
 
 function getMd5SumsForVersion(string $version): array
 {
-    $url = sprintf('https://swagger.docs.fos.gg/version/%s/Files.md5sums', $version);
+    global $hashType;
+
+    $type = $hashType === 'xxh64' ? 'xxhsums' : 'md5sums';
+
+    $url = sprintf('https://swagger.docs.fos.gg/version/%s/Files.' . $type, $version);
     echo '=> Downloading meta information from ' . $url . PHP_EOL;
 
     $data = trim(@file_get_contents($url));
