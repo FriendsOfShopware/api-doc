@@ -1,6 +1,8 @@
 name: Generate MD5 Filesums
 
 on:
+    schedule:
+      - cron: '0 */1 * * *'
     workflow_dispatch:
       inputs:
         forceGenerate:
@@ -42,6 +44,6 @@ jobs:
         add: '.'
         author_name: Frosh Automation
         author_email: ci@fos.gg
-        message: 'chore: Updated MD5 Filesums'
+        message: 'chore: Updated Filesums'
        env:
          GITHUB_TOKEN: ${{ secrets.FROSH_CI_TOKEN }}
