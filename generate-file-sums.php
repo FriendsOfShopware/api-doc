@@ -1,5 +1,7 @@
 <?php
 
+include 'functions.php';
+
 $forceGenerate = isset($_SERVER['FORCE_GENERATE']) && $_SERVER['FORCE_GENERATE'] === '1';
 
 echo "Force generate mode: " . var_export($forceGenerate, true) . PHP_EOL;
@@ -112,20 +114,4 @@ foreach ($missingVersions as $release) {
 
     fixPaths($outputFolder . '/Files.md5sums');
     fixPaths($outputFolder . '/Files.xxhsums');
-}
-
-function fetch_tags(int $page = 1) {
-    $ch = curl_init('https://api.github.com/repos/shopware/platform/tags?per_page=100&page=' . $page);
-    curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
-    curl_setopt($ch, CURLOPT_HTTPHEADER, [
-        'User-Agent: Composer Dumper'
-    ]);
-    $tags = json_decode(curl_exec($ch), true);
-    curl_close($ch);
-
-    if (count($tags) === 100) {
-        $tags = array_merge($tags, fetch_tags($page + 1));
-    }
-
-    return $tags;
 }
