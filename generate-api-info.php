@@ -1,96 +1,35 @@
 <?php
 
+include 'functions.php';
+
+$shopwareDir = $_SERVER['GITHUB_WORKSPACE'] . '/shopware/';
+$apiDir = $_SERVER['GITHUB_WORKSPACE'] . '/api-doc/';
+
+chdir($shopwareDir);
+
 $forceGenerate = isset($_SERVER['FORCE_GENERATE']) && $_SERVER['FORCE_GENERATE'] === '1';
 
 echo "Force generate mode: " . var_export($forceGenerate, true);
 
-function fetch($path)
-{
-    $ch = curl_init('http://localhost:8000' . $path);
-    curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-    $json = curl_exec($ch);
-
-    if ($json === false) {
-        var_dump(curl_getinfo($ch));
-    }
-
-    curl_close($ch);
-
-    if (empty($json)) {
-        return null;
-    }
-
-    $api = json_decode($json, true);
-
-    if (isset($api['errors'])) {
-        var_dump($api);
-        return null;
-    }
-
-    if (!isset($api['openapi'])) {
-        return null;
-    }
-
-    $api['servers'] = [
-        [
-            'url' => 'http://localhost',
-        ],
-    ];
-
-    return $api;
-}
-
 function updateShopware($updateInfo)
 {
-    $zipName = basename($updateInfo['link']);
+    $version = $updateInfo['name'];
 
-    echo '=> Downloading ' . $updateInfo['version'] . PHP_EOL;
-    exec('wget -qq ' . $updateInfo['link']);
+    exec('composer require -W --no-audit --no-scripts --no-interaction shopware/core:' . $version .  ' shopware/administration:' . $version . ' shopware/storefront:' . $version . ' shopware/elasticsearch:' . $version);
 
-    echo '=> Unzip ' . $updateInfo['version'] . PHP_EOL;
-    exec('unzip -qq -o ' . $zipName);
-    exec('rm -rf vendor/shopware/recovery/vendor/phpunit/php-code-coverage/tests/_files/Crash.php');
-
-    echo '=> Updating ' . $updateInfo['version'] . PHP_EOL;
-    exec('php public/recovery/update/index.php -n');
-    exec('rm -rf update-assets');
 }
 
 function dumpApiInfo(string $currentVersion)
 {
-    $apiVersion = $currentVersion[2];
-    $apiPath = '/v' . $apiVersion;
-
-    if ($apiVersion >= 4) {
-        $apiPath = '';
-    }
-
-    $api = fetch('/api' . $apiPath . '/_info/openapi3.json');
-    $scApi = fetch('/sales-channel-api' . $apiPath . '/_info/openapi3.json');
-    $stApi = fetch('/store-api' . $apiPath . '/_info/openapi3.json');
-    $entitySchema = fetch('/api' . $apiPath . '/_info/entity-schema.json');
-
     $outputDir = dirname(__DIR__) . '/api-doc/version/' . $currentVersion . '/';
     if (!file_exists($outputDir)) {
         mkdir($outputDir, 0777, true);
     }
 
-    if ($api) {
-        file_put_contents($outputDir . '/api.json', json_encode($api, JSON_UNESCAPED_SLASHES));
-    }
-
-    if ($scApi) {
-        file_put_contents($outputDir . '/sales-channel-api.json', json_encode($scApi, JSON_UNESCAPED_SLASHES));
-    }
-
-    if ($stApi) {
-        file_put_contents($outputDir . '/store-api.json', json_encode($stApi, JSON_UNESCAPED_SLASHES));
-    }
-    
-    if ($entitySchema) {
-        file_put_contents($outputDir . '/entity-schema.json', json_encode($entitySchema, JSON_UNESCAPED_SLASHES));
-    }
-
+    exec('php bin/console framework:schema -s entity-schema ' . $outputDir . '/entity-schema.json');
+    exec('php bin/console framework:schema -s openapi3 ' . $outputDir . '/api.json');
+    exec('php bin/console framework:schema -s openapi3 --store-api ' . $outputDir . '/store-api.json');
+   
     printf('> Dumped files for version %s' . PHP_EOL, $currentVersion);
 }
 
@@ -100,7 +39,11 @@ function getMissingVersions(array $releases): array
     $missing = [];
 
     foreach ($releases as $release) {
-        if (is_dir(dirname(__DIR__) . '/api-doc/version/' . $release['version']) && !$forceGenerate) {
+        if (version_compare(ltrim($release['name'], 'v'), '6.5.0.0', '<')) {
+            continue;
+        }
+
+        if (is_file(dirname(__DIR__) . '/api-doc/version/' . ltrim($release['name'], 'v') . '/api.json') && !$forceGenerate) {
             continue;
         }
 
@@ -108,38 +51,6 @@ function getMissingVersions(array $releases): array
     }
 
     return $missing;
-}
-
-function setUpShopware(array $release)
-{
-    $installFolder = sys_get_temp_dir() . '/' . uniqid('sw', true);
-    if (!mkdir($installFolder) && !is_dir($installFolder)) {
-        throw new \RuntimeException(sprintf('Directory "%s" was not created', $installFolder));
-    }
-
-    chdir($installFolder);
-
-    printf('> Installing Shopware with Version: %s in %s' . PHP_EOL, $release['version'], $installFolder);
-
-    $descriptorspec = [
-        0 => ['pipe', 'r'],
-        1 => ['pipe', 'w'],
-        2 => ['pipe', '/w'],
-    ];
-
-
-    exec('wget -O install.zip -qq ' . $release['download']);
-    exec('unzip -q install.zip');
-
-    $webServer = proc_open('php -S localhost:8000 -t public public/index.php', $descriptorspec, $pipes);
-    register_shutdown_function(static function () use($webServer, $installFolder) {
-        proc_terminate($webServer, 9);
-        proc_close($webServer);
-        exec('rm -rf ' . escapeshellarg($installFolder));
-    });
-
-    exec('php public/recovery/install/index.php --shop-host localhost --db-host 127.0.0.1  --db-user root --db-password shopware --db-name shopware --shop-locale en-GB --shop-currency EUR --admin-username demo  --admin-password demo --admin-email demo@foo.com --admin-locale en-GB --admin-firstname demo --admin-lastname demo -n');
-    exec('echo \'APP_ENV=dev\' >> .env');
 }
 
 function updateSwaggerIndex()
@@ -186,7 +97,7 @@ function updateSwaggerIndex()
     file_put_contents(__DIR__ . '/data.json', json_encode($listing, JSON_PRETTY_PRINT));
 }
 
-$releases = array_reverse(json_decode(file_get_contents('https://n0g72msg55.execute-api.eu-central-1.amazonaws.com/'), true));
+$releases = array_reverse(fetch_tags());
 $missingVersions = getMissingVersions($releases);
 
 if ($missingVersions === []) {
@@ -195,13 +106,9 @@ if ($missingVersions === []) {
 }
 
 foreach ($missingVersions as $i => $missingVersion) {
-    if ($i === 0) {
-        setUpShopware($missingVersion);
-    } else {
-        updateShopware($missingVersion);
-    }
+    updateShopware($missingVersion);
 
-    dumpApiInfo($missingVersion['version']);
+    dumpApiInfo($missingVersion['name']);
 }
 
 updateSwaggerIndex();
