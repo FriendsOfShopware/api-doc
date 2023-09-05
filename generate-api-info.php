@@ -39,7 +39,7 @@ function getMissingVersions(array $releases): array
     $missing = [];
 
     foreach ($releases as $release) {
-        if (version_compare(ltrim($release['name'], 'v'), '6.5.0.0', '<')) {
+        if (version_compare(ltrim($release['name'], 'v'), '6.4.18.0', '<')) {
             continue;
         }
 
