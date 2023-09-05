@@ -97,7 +97,7 @@ function updateSwaggerIndex()
     }
 
     usort($listing, static function (array $a, array $b) {
-        return strnatcmp($a['version'], $b['version']);
+        return strnatcmp($b['version'], $a['version']);
     });
 
     file_put_contents(__DIR__ . '/data.json', json_encode($listing, JSON_PRETTY_PRINT));
