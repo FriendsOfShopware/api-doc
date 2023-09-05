@@ -12,38 +12,54 @@ on:
     push:
         branches:
           - master
-        paths:
-          - version.txt
+          - fix-apidoc
 jobs:
   build:
     runs-on: ubuntu-latest
-    services:
-      mysql:
-        image: mysql:5.7
-        env:
-          MYSQL_ROOT_PASSWORD: shopware
-          MYSQL_DATABASE: shopware
-        ports:
-          - '3306:3306'
+    env:
+      APP_ENV: dev
+      APP_URL: http://localhost:8000
+      DATABASE_URL: mysql://root@127.0.0.1/shopware
+      COMPOSER_NO_AUDIT: "1"
     steps:
-     - uses: shivammathur/setup-php@v2
-       with:
-        php-version: '7.4'
+      - name: Get Composer Cache Directory
+        id: composer-cache
+        run: |
+          echo "dir=$(composer global config cache-files-dir)" >> $GITHUB_OUTPUT
+      
+      - uses: actions/cache@v3
+        with:
+          path: ${{ steps.composer-cache.outputs.dir }}
+          key: ${{ runner.os }}-composer-6500
+          restore-keys: |
+            ${{ runner.os }}-composer-
+      -
+        name: Install Shopware CLI
+        uses: FriendsOfShopware/shopware-cli-action@main
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
-     - name: Clone api-doc
-       uses: actions/checkout@v2
+      - name: Create Project
+        run: shopware-cli project create shopware 6.5.0.0
 
-     - name: Dump Info
-       run: |
-         php generate-api-info.php
-       env:
-         FORCE_GENERATE: ${{ inputs.forceGenerate }}
-    
-     - uses: EndBug/add-and-commit@v4
-       with:
-        add: '.'
-        author_name: Frosh Automation
-        author_email: ci@fos.gg
-        message: 'chore: Updated Swagger definitions'
-       env:
-         GITHUB_TOKEN: ${{ secrets.FROSH_CI_TOKEN }}
+      - name: Clone api-doc
+        uses: actions/checkout@v3
+        with:
+          path: api-doc
+
+      - name: Dump Info
+        working-directory: api-doc
+        run: |
+          php generate-api-info.php
+        env:
+          FORCE_GENERATE: ${{ inputs.forceGenerate }}
+      
+      - uses: EndBug/add-and-commit@v4
+        with:
+          add: '.'
+          cwd: 'api-doc'
+          author_name: Frosh Automation
+          author_email: ci@fos.gg
+          message: 'chore: Updated Swagger definitions'
+        env:
+          GITHUB_TOKEN: ${{ secrets.FROSH_CI_TOKEN }}
