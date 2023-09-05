@@ -5,6 +5,8 @@ include 'functions.php';
 $shopwareDir = $_SERVER['GITHUB_WORKSPACE'] . '/shopware/';
 $apiDir = $_SERVER['GITHUB_WORKSPACE'] . '/api-doc/';
 
+chdir($shopwareDir);
+
 $forceGenerate = isset($_SERVER['FORCE_GENERATE']) && $_SERVER['FORCE_GENERATE'] === '1';
 
 echo "Force generate mode: " . var_export($forceGenerate, true);
