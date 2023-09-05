@@ -5,17 +5,15 @@ include 'functions.php';
 $shopwareDir = $_SERVER['GITHUB_WORKSPACE'] . '/shopware/';
 $apiDir = $_SERVER['GITHUB_WORKSPACE'] . '/api-doc/';
 
-chdir($shopwareDir);
-
 $forceGenerate = isset($_SERVER['FORCE_GENERATE']) && $_SERVER['FORCE_GENERATE'] === '1';
 
 echo "Force generate mode: " . var_export($forceGenerate, true);
 
 function updateShopware($updateInfo)
 {
-    $version = $updateInfo['name'];
+    $name = $updateInfo['name'];
 
-    exec('composer require -W --no-audit --no-scripts --no-interaction shopware/core:' . $version .  ' shopware/administration:' . $version . ' shopware/storefront:' . $version . ' shopware/elasticsearch:' . $version);
+    exec('composer require -W --no-audit --no-scripts --no-interaction shopware/core:' . $name .  ' shopware/administration:' . $name . ' shopware/storefront:' . $name . ' shopware/elasticsearch:' . $name);
 
 }
 
@@ -39,13 +37,21 @@ function getMissingVersions(array $releases): array
     $missing = [];
 
     foreach ($releases as $release) {
-        if (version_compare(ltrim($release['name'], 'v'), '6.4.18.0', '<')) {
+        $version = ltrim($release['name'], 'v');
+
+        if (version_compare($version, '6.4.18.0', '<')) {
             continue;
         }
 
-        if (is_file(dirname(__DIR__) . '/api-doc/version/' . ltrim($release['name'], 'v') . '/api.json') && !$forceGenerate) {
+        if (str_contains(strtolower($version), '-rc')) {
             continue;
         }
+
+        if (is_file(dirname(__DIR__) . '/api-doc/version/' . $version . '/api.json') && !$forceGenerate) {
+            continue;
+        }
+
+        $release['version'] = $version;
 
         $missing[] = $release;
     }
@@ -68,7 +74,7 @@ function updateSwaggerIndex()
         if (\file_exists($folderPath . '/api.json')) {
             $listing[] = [
                 'url' => '/version/' . $version . '/api.json',
-                'name' => 'Management API (' . $version . ')',
+                'name' => $version . ' | Management API',
                 'version' => $version
             ];
         }
@@ -76,7 +82,7 @@ function updateSwaggerIndex()
         if (\file_exists($folderPath . '/sales-channel-api.json')) {
             $listing[] = [
                 'url' => '/version/' . $version . '/sales-channel-api.json',
-                'name' => 'Sales Channel API (' . $version . ')',
+                'name' => $version . ' | Sales Channel API',
                 'version' => $version
             ];
         }
@@ -84,7 +90,7 @@ function updateSwaggerIndex()
         if (\file_exists($folderPath . '/store-api.json')) {
             $listing[] = [
                 'url' => '/version/' . $version . '/store-api.json',
-                'name' => 'Store API (' . $version . ')',
+                'name' => $version . ' | Store API',
                 'version' => $version
             ];
         }
@@ -108,7 +114,7 @@ if ($missingVersions === []) {
 foreach ($missingVersions as $i => $missingVersion) {
     updateShopware($missingVersion);
 
-    dumpApiInfo($missingVersion['name']);
+    dumpApiInfo($missingVersion['version']);
 }
 
 updateSwaggerIndex();
