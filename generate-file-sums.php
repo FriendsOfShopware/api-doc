@@ -79,7 +79,7 @@ function fixPaths($output)
     while (!feof($reading)) {
         $line = fgets($reading);
 
-        $newLine = preg_replace_callback('/shopware-platform-\w+\/src\/(\w+)/', function ($matches) {
+        $newLine = preg_replace_callback('/shopware-shopware-\w+\/src\/(\w+)/', function ($matches) {
             return 'vendor/shopware/' . strtolower($matches[1]);
         }, $line);
 
@@ -107,8 +107,8 @@ foreach ($missingVersions as $release) {
 
     $outputFolder = $release['output'];
 
-    exec("find shopware-platform-*/src -type f \( " . implode(' ', $ignoredFilesFilter) . " -iname '*.php' -o -iname '*.twig' -o -iname '*.js' -o -iname '*.scss' -o -iname '*.xml' \) -print0 | xargs -0 md5sum | sort -k 2 -d > " . $outputFolder . '/Files.md5sums');
-    exec("find shopware-platform-*/src -type f \( " . implode(' ', $ignoredFilesFilter) . " -iname '*.php' -o -iname '*.twig' -o -iname '*.js' -o -iname '*.scss' -o -iname '*.xml' \) -print0 | xargs -0 xxhsum | sort -k 2 -d > " . $outputFolder . '/Files.xxhsums');
+    exec("find */src -type f \( " . implode(' ', $ignoredFilesFilter) . " -iname '*.php' -o -iname '*.twig' -o -iname '*.js' -o -iname '*.scss' -o -iname '*.xml' \) -print0 | xargs -0 md5sum | sort -k 2 -d > " . $outputFolder . '/Files.md5sums');
+    exec("find */src -type f \( " . implode(' ', $ignoredFilesFilter) . " -iname '*.php' -o -iname '*.twig' -o -iname '*.js' -o -iname '*.scss' -o -iname '*.xml' \) -print0 | xargs -0 xxhsum | sort -k 2 -d > " . $outputFolder . '/Files.xxhsums');
 
     exec('rm -rf ' . escapeshellarg($installFolder));
 
