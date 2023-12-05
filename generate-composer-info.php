@@ -88,6 +88,6 @@ foreach ($tags as $tag) {
 }
 
 // @todo remove when 6.6 is out
-$availableVersions[] = '6.6.0';
+$availableVersions[] = '6.6.0.0';
 
 file_put_contents($composerFolder . '/versions.json', json_encode($availableVersions, JSON_PRETTY_PRINT));
