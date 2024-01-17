@@ -33,7 +33,9 @@ foreach ($tags as $tag) {
 
     $phpVersion = "7.2.0";
 
-    if (version_compare('6.5.0.0', $versionRaw, '>=')) {
+    if (version_compare('6.6.0.0', $versionRaw, '>=')) {
+        $phpVersion = "8.2.0";
+    } else if (version_compare('6.5.0.0', $versionRaw, '>=')) {
         $phpVersion = "8.1.0";
     } else if (version_compare('6.4.0.0', $versionRaw, '>=')) {
         $phpVersion = "7.4.0";
