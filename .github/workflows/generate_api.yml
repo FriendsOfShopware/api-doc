@@ -36,8 +36,6 @@ jobs:
       -
         name: Install Shopware CLI
         uses: FriendsOfShopware/shopware-cli-action@main
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Create Project
         run: shopware-cli project create shopware 6.5.0.0
