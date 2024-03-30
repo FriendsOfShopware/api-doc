@@ -24,7 +24,9 @@ jobs:
         php-version: '7.4'
 
      - name: Clone api-doc
-       uses: actions/checkout@v2
+       uses: actions/checkout@v4
+       with:
+        token: ${{ secrets.FROSH_CI_TOKEN }}
 
      - name: Generate Composer Info
        run: |

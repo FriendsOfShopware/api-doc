@@ -41,9 +41,10 @@ jobs:
         run: shopware-cli project create shopware 6.5.0.0
 
       - name: Clone api-doc
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
         with:
           path: api-doc
+          token: ${{ secrets.FROSH_CI_TOKEN }}
 
       - name: Dump Info
         working-directory: api-doc
