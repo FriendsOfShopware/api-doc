@@ -1,5 +1,75 @@
 [
     {
+        "url": "\/version\/6.6.0.1\/api.json",
+        "name": "6.6.0.1 | Management API",
+        "version": "6.6.0.1"
+    },
+    {
+        "url": "\/version\/6.6.0.1\/store-api.json",
+        "name": "6.6.0.1 | Store API",
+        "version": "6.6.0.1"
+    },
+    {
+        "url": "\/version\/6.6.0.0\/api.json",
+        "name": "6.6.0.0 | Management API",
+        "version": "6.6.0.0"
+    },
+    {
+        "url": "\/version\/6.6.0.0\/store-api.json",
+        "name": "6.6.0.0 | Store API",
+        "version": "6.6.0.0"
+    },
+    {
+        "url": "\/version\/6.5.8.7\/api.json",
+        "name": "6.5.8.7 | Management API",
+        "version": "6.5.8.7"
+    },
+    {
+        "url": "\/version\/6.5.8.7\/store-api.json",
+        "name": "6.5.8.7 | Store API",
+        "version": "6.5.8.7"
+    },
+    {
+        "url": "\/version\/6.5.8.6\/api.json",
+        "name": "6.5.8.6 | Management API",
+        "version": "6.5.8.6"
+    },
+    {
+        "url": "\/version\/6.5.8.6\/store-api.json",
+        "name": "6.5.8.6 | Store API",
+        "version": "6.5.8.6"
+    },
+    {
+        "url": "\/version\/6.5.8.5\/api.json",
+        "name": "6.5.8.5 | Management API",
+        "version": "6.5.8.5"
+    },
+    {
+        "url": "\/version\/6.5.8.5\/store-api.json",
+        "name": "6.5.8.5 | Store API",
+        "version": "6.5.8.5"
+    },
+    {
+        "url": "\/version\/6.5.8.4\/api.json",
+        "name": "6.5.8.4 | Management API",
+        "version": "6.5.8.4"
+    },
+    {
+        "url": "\/version\/6.5.8.4\/store-api.json",
+        "name": "6.5.8.4 | Store API",
+        "version": "6.5.8.4"
+    },
+    {
+        "url": "\/version\/6.5.8.3\/api.json",
+        "name": "6.5.8.3 | Management API",
+        "version": "6.5.8.3"
+    },
+    {
+        "url": "\/version\/6.5.8.3\/store-api.json",
+        "name": "6.5.8.3 | Store API",
+        "version": "6.5.8.3"
+    },
+    {
         "url": "\/version\/6.5.8.2\/api.json",
         "name": "6.5.8.2 | Management API",
         "version": "6.5.8.2"
