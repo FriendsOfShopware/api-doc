@@ -42,7 +42,6 @@ jobs:
      - uses: EndBug/add-and-commit@v4
        with:
         add: '.'
-        cwd: 'api-doc'
         author_name: Frosh Automation
         author_email: ci@fos.gg
         message: 'chore: Updated Filesums'
