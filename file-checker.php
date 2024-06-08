@@ -33,6 +33,9 @@ foreach ($md5Sums as $row) {
             echo(sprintf('File "%s" has been modified. Please revert it back to default!' . PHP_EOL, $file));
             $foundSomething = true;
         }
+    } else {
+        echo(sprintf('File "%s" is missing. Please get it back!' . PHP_EOL, $file));
+        $foundSomething = true;
     }
 }
 
