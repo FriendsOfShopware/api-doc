@@ -38,7 +38,7 @@ jobs:
         uses: FriendsOfShopware/shopware-cli-action@main
 
       - name: Create Project
-        run: shopware-cli project create shopware 6.5.0.0
+        run: shopware-cli project create shopware 6.6.9.0
 
       - name: Clone api-doc
         uses: actions/checkout@v4
