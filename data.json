@@ -1,5 +1,15 @@
 [
     {
+        "url": "\/version\/6.6.10.4\/api.json",
+        "name": "6.6.10.4 | Management API",
+        "version": "6.6.10.4"
+    },
+    {
+        "url": "\/version\/6.6.10.4\/store-api.json",
+        "name": "6.6.10.4 | Store API",
+        "version": "6.6.10.4"
+    },
+    {
         "url": "\/version\/6.6.10.3\/api.json",
         "name": "6.6.10.3 | Management API",
         "version": "6.6.10.3"
