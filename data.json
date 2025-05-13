@@ -270,6 +270,16 @@
         "version": "6.6.0.0"
     },
     {
+        "url": "\/version\/6.5.8.18\/api.json",
+        "name": "6.5.8.18 | Management API",
+        "version": "6.5.8.18"
+    },
+    {
+        "url": "\/version\/6.5.8.18\/store-api.json",
+        "name": "6.5.8.18 | Store API",
+        "version": "6.5.8.18"
+    },
+    {
         "url": "\/version\/6.5.8.17\/api.json",
         "name": "6.5.8.17 | Management API",
         "version": "6.5.8.17"
