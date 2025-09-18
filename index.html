@@ -2,41 +2,163 @@
 <html>
     <head>
         <title>API Browser for Shopware 6</title>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/swagger-ui/5.29.0/swagger-ui-bundle.js"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/swagger-ui/5.29.0/swagger-ui-standalone-preset.js"></script>
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/swagger-ui/5.29.0/swagger-ui.css"/>
+        <script src="https://unpkg.com/@stoplight/elements/web-components.min.js"></script>
+        <link rel="stylesheet" href="https://unpkg.com/@stoplight/elements/styles.min.css">
         <style>
             body {
                 margin: 0;
+                padding: 0;
+                font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+            }
+            .header {
+                background: #1a202c;
+                color: white;
+                padding: 1rem;
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            }
+            .header h1 {
+                margin: 0;
+                font-size: 1.5rem;
+                font-weight: 600;
+            }
+            .version-selector {
+                display: flex;
+                align-items: center;
+                gap: 0.5rem;
+            }
+            .version-selector label {
+                font-weight: 500;
+            }
+            .version-selector select {
+                padding: 0.5rem;
+                border-radius: 4px;
+                border: 1px solid #4a5568;
+                background: #2d3748;
+                color: white;
+                font-size: 0.9rem;
+                cursor: pointer;
+                min-width: 200px;
+            }
+            .version-selector select:hover {
+                border-color: #718096;
+            }
+            .version-selector select:focus {
+                outline: none;
+                border-color: #4299e1;
+                box-shadow: 0 0 0 3px rgba(66, 153, 225, 0.1);
+            }
+            .api-container {
+                height: calc(100vh - 80px);
+            }
+            elements-api {
+                height: 100%;
+                width: 100%;
             }
         </style>
     </head>
     <body>
-        <div id="swagger-ui"></div>
+        <div class="header">
+            <h1>Shopware 6 API Browser</h1>
+            <div class="version-selector">
+                <label for="api-version">API Version:</label>
+                <select id="api-version">
+                    <option value="">Loading...</option>
+                </select>
+            </div>
+        </div>
+
+        <div class="api-container">
+            <elements-api id="api-browser" router="hash" layout="sidebar"></elements-api>
+        </div>
+
     <script>
         let load = async () => {
             let data = await (await fetch('/data.json')).json();
+            const apiBrowser = document.getElementById('api-browser');
+            const versionSelector = document.getElementById('api-version');
 
-            const ui = SwaggerUIBundle({
-                urls: data,
-                dom_id: '#swagger-ui',
-                deepLinking: true,
-                displayOperationId: true,
-                docExpansion: 'list',
-                validatorUrl: null,
-                defaultModelsExpandDepth: -1,
-                presets: [
-                    SwaggerUIBundle.presets.apis,
-                    SwaggerUIStandalonePreset,
-                ],
-                plugins: [
-                    SwaggerUIBundle.plugins.DownloadUrl
-                ],
-                layout: "StandaloneLayout",
-                showCommonExtensions: true
-            });
+            // Clear loading option
+            versionSelector.innerHTML = '';
 
-            window.ui = ui
+            if (data && data.length > 0) {
+                // Populate version selector
+                data.forEach(api => {
+                    const option = document.createElement('option');
+                    option.value = api.name; // Use name as value for query param
+                    option.dataset.url = api.url; // Store URL in data attribute
+                    option.textContent = `${api.version} | ${api.name.split(' | ')[1] || api.name}`;
+                    versionSelector.appendChild(option);
+                });
+
+                // Get selected version from query parameter
+                const urlParams = new URLSearchParams(window.location.search);
+                const selectedName = urlParams.get('urls.primaryName');
+
+                // Find and select the matching API
+                let selectedApi = data[0]; // Default to first
+                if (selectedName) {
+                    const found = data.find(api => api.name === selectedName);
+                    if (found) {
+                        selectedApi = found;
+                    }
+                }
+
+                // Load the selected API
+                await loadApiDocument(selectedApi.url);
+                versionSelector.value = selectedApi.name;
+
+                // Handle version changes
+                versionSelector.addEventListener('change', async (e) => {
+                    const selectedOption = e.target.selectedOptions[0];
+                    const selectedUrl = selectedOption.dataset.url;
+                    const selectedName = selectedOption.value;
+
+                    if (selectedUrl) {
+                        // Update query parameter
+                        const url = new URL(window.location);
+                        url.searchParams.set('urls.primaryName', selectedName);
+                        window.history.pushState({}, '', url);
+
+                        // Load the API document
+                        await loadApiDocument(selectedUrl);
+                        // Clear hash to reset the view
+                        window.location.hash = '';
+                    }
+                });
+
+                console.log('Loaded APIs:', data);
+            } else {
+                versionSelector.innerHTML = '<option value="">No APIs available</option>';
+            }
+        }
+
+        let loadApiDocument = async (url) => {
+            const apiBrowser = document.getElementById('api-browser');
+
+            try {
+                // Fetch the API document
+                const response = await fetch(url);
+                const text = await response.text();
+
+                // Set the API document directly
+                apiBrowser.apiDescriptionDocument = text;
+
+                console.log('Loaded API document from:', url);
+            } catch (error) {
+                console.error('Error loading API document:', error);
+                apiBrowser.apiDescriptionDocument = JSON.stringify({
+                    openapi: '3.0.0',
+                    info: {
+                        title: 'Error Loading API',
+                        version: '1.0.0',
+                        description: `Failed to load API document from ${url}`
+                    },
+                    paths: {}
+                }, null, 2);
+            }
         }
 
         load();
