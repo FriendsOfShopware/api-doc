@@ -100,6 +100,16 @@
         "version": "6.7.0.0"
     },
     {
+        "url": "\/version\/6.6.10.8\/api.json",
+        "name": "6.6.10.8 | Management API",
+        "version": "6.6.10.8"
+    },
+    {
+        "url": "\/version\/6.6.10.8\/store-api.json",
+        "name": "6.6.10.8 | Store API",
+        "version": "6.6.10.8"
+    },
+    {
         "url": "\/version\/6.6.10.7\/api.json",
         "name": "6.6.10.7 | Management API",
         "version": "6.6.10.7"
