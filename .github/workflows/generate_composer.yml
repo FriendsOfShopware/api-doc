@@ -14,6 +14,10 @@ on:
         - master
       paths:
         - version.txt
+
+env:
+  COMPOSER_NO_BLOCKING: '1'
+  
 jobs:
   build:
     runs-on: ubuntu-latest
