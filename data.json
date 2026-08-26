@@ -1,5 +1,15 @@
 [
     {
+        "url": "\/version\/6.7.13.1\/api.json",
+        "name": "6.7.13.1 | Management API",
+        "version": "6.7.13.1"
+    },
+    {
+        "url": "\/version\/6.7.13.1\/store-api.json",
+        "name": "6.7.13.1 | Store API",
+        "version": "6.7.13.1"
+    },
+    {
         "url": "\/version\/6.7.13.0\/api.json",
         "name": "6.7.13.0 | Management API",
         "version": "6.7.13.0"
@@ -338,6 +348,16 @@
         "url": "\/version\/6.7.0.0\/store-api.json",
         "name": "6.7.0.0 | Store API",
         "version": "6.7.0.0"
+    },
+    {
+        "url": "\/version\/6.6.10.23\/api.json",
+        "name": "6.6.10.23 | Management API",
+        "version": "6.6.10.23"
+    },
+    {
+        "url": "\/version\/6.6.10.23\/store-api.json",
+        "name": "6.6.10.23 | Store API",
+        "version": "6.6.10.23"
     },
     {
         "url": "\/version\/6.6.10.22\/api.json",
