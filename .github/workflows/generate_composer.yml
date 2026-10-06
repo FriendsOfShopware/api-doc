@@ -28,7 +28,7 @@ jobs:
         php-version: '7.4'
 
      - name: Clone api-doc
-       uses: actions/checkout@v4
+       uses: actions/checkout@v7
        with:
         token: ${{ secrets.FROSH_CI_TOKEN }}
 
