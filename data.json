@@ -1,5 +1,55 @@
 [
     {
+        "url": "\/version\/6.7.15.1\/api.json",
+        "name": "6.7.15.1 | Management API",
+        "version": "6.7.15.1"
+    },
+    {
+        "url": "\/version\/6.7.15.1\/store-api.json",
+        "name": "6.7.15.1 | Store API",
+        "version": "6.7.15.1"
+    },
+    {
+        "url": "\/version\/6.7.15.0\/api.json",
+        "name": "6.7.15.0 | Management API",
+        "version": "6.7.15.0"
+    },
+    {
+        "url": "\/version\/6.7.15.0\/store-api.json",
+        "name": "6.7.15.0 | Store API",
+        "version": "6.7.15.0"
+    },
+    {
+        "url": "\/version\/6.7.14.2\/api.json",
+        "name": "6.7.14.2 | Management API",
+        "version": "6.7.14.2"
+    },
+    {
+        "url": "\/version\/6.7.14.2\/store-api.json",
+        "name": "6.7.14.2 | Store API",
+        "version": "6.7.14.2"
+    },
+    {
+        "url": "\/version\/6.7.14.1\/api.json",
+        "name": "6.7.14.1 | Management API",
+        "version": "6.7.14.1"
+    },
+    {
+        "url": "\/version\/6.7.14.1\/store-api.json",
+        "name": "6.7.14.1 | Store API",
+        "version": "6.7.14.1"
+    },
+    {
+        "url": "\/version\/6.7.14.0\/api.json",
+        "name": "6.7.14.0 | Management API",
+        "version": "6.7.14.0"
+    },
+    {
+        "url": "\/version\/6.7.14.0\/store-api.json",
+        "name": "6.7.14.0 | Store API",
+        "version": "6.7.14.0"
+    },
+    {
         "url": "\/version\/6.7.13.1\/api.json",
         "name": "6.7.13.1 | Management API",
         "version": "6.7.13.1"
