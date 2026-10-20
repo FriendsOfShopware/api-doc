@@ -35,10 +35,10 @@ jobs:
             ${{ runner.os }}-composer-
       -
         name: Install Shopware CLI
-        uses: FriendsOfShopware/shopware-cli-action@main
+        uses: shopware/shopware-cli-action@main
 
       - name: Create Project
-        run: shopware-cli project create shopware 6.6.9.0 --no-audit
+        run: shopware-cli project create shopware 6.7.14.0 --no-audit
 
       - name: Clone api-doc
         uses: actions/checkout@v7
