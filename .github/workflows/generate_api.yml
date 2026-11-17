@@ -21,6 +21,7 @@ jobs:
       APP_URL: http://localhost:8000
       DATABASE_URL: mysql://root@127.0.0.1/shopware
       COMPOSER_NO_AUDIT: "1"
+      DO_NOT_TRACK: '1'
     steps:
       - name: Get Composer Cache Directory
         id: composer-cache
